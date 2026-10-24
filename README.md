@@ -1,0 +1,51 @@
+# Fieldwork
+
+A personal workout journal. React + TypeScript, IndexedDB, and a production service worker. The current milestone runs entirely on the device; it does not send workout data to a server.
+
+## Develop
+
+Use the existing checkout at `/workspace/workout-tracker`. Each cloud task already has an isolated workspace; do not create another worktree unless requested.
+
+```sh
+cd /workspace/workout-tracker
+npm ci
+npm run dev
+```
+
+## Validate
+
+```sh
+npm test
+npm run build
+npm run test:browser
+# For production offline checks, first serve dist on port 4173:
+# npx vite preview --host 0.0.0.0 --port 4173
+APP_URL=http://localhost:4173 TEST_OFFLINE=1 npm run test:browser
+```
+
+The browser smoke test uses its own temporary browser profile and synthetic fixtures, not personal journal data. It exercises mobile logging, IndexedDB persistence, import deduplication, search, and charts.
+
+## Current capabilities
+
+- Set entry in journal notation, including notes, decimal and unknown repetitions.
+- Multiple exercise types, editable historical sessions (add/remove sets).
+- Searchable history, source text inspection, and JSON export including full import sources.
+- Text import with newest-year anchoring, year rollover inference, invalid-date flags, stable session IDs, and exact repeat deduplication.
+- Per-exercise estimated 1RM chart. Singles use actual weight; Epley applies to 2–10 reps. Holds and failed/unknown reps are excluded.
+- Production PWA manifest and service worker. The browser must first load online; HTTPS is required away from localhost. Runtime-loaded same-origin assets are cached for offline use.
+
+## Important limits
+
+The pasted personal journal has not yet been loaded into this app. Do not substitute synthetic fixtures for it or claim that its import was verified. The full journal is available in the project conversation, not in a file in this checkout.
+
+The importer deliberately does not infer equipment from hotel names or load magnitudes. Ambiguous sessions require classification review. Notes preserve technique but the initial chart does not filter technique variations. Dumbbell weights retain their recorded value; total two-dumbbell tonnage is not inferred. Unknown reps contribute zero to recorded volume; this is incomplete rather than an estimate. The original source is retained separately when imported, so manual edits do not overwrite it.
+
+Production offline reload and offline set entry passed Chromium browser validation. Installation on a physical iPhone, JSON restore, and cross-device synchronization still need validation/implementation. Export backups before clearing browser data. There is no login or server backup yet. Do not deploy this as a shared authenticated service until the backend is implemented.
+
+## Next backend milestone
+
+DreamHost-compatible PHP 8 and MySQL, with a single user and password-hashed login, secure HttpOnly SameSite sessions, CSRF protection, UUID records, revisions, tombstones, and an operation outbox. Sync uses compare-and-swap revisions and records conflicts for explicit resolution, retaining both versions. Never use silent last-write-wins. Store server secrets outside the public document root. Static frontend builds deploy to the web root; a PHP API runs alongside them. No database credentials are needed for local frontend development.
+
+## Privacy
+
+Personal imports and exports should stay outside Git (use ignored `private-data/`). No telemetry or hosted data service is configured. Fonts use the system font stack; no remote font requests are made.

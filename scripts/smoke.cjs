@@ -1,0 +1,44 @@
+const { chromium } = require('playwright');
+const assert = require('node:assert/strict');
+(async()=>{
+ const portable = require('@sparticuz/chromium').default;
+ const browser=await chromium.launch({headless:true, executablePath:await portable.executablePath(), args:portable.args});
+ const page=await browser.newPage({viewport:{width:390,height:844}});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(process.env.APP_URL || 'http://localhost:5173');
+ await page.getByPlaceholder('3x 225 paused').fill('3x 225 paused feet up');
+ await page.getByRole('button',{name:'Save set',exact:true}).click();
+ await page.getByRole('status').filter({hasText:'Set saved'}).waitFor();
+ await page.reload();
+ await page.getByText('1 SETS THIS SESSION').waitFor();
+ await page.getByRole('button',{name:'Import journal',exact:true}).click();
+ await page.locator('textarea').fill('10/21 home\n3x 225 paused\n1/1\n1x 205\n12/29\n?x 195');
+ await page.getByRole('button',{name:'Import journal',exact:false}).last().click();
+ await page.getByRole('status').filter({hasText:'Imported 3 new sessions'}).waitFor();
+ await page.getByRole('button',{name:'Import journal',exact:true}).click();
+ await page.locator('textarea').fill('10/21 home\n3x 225 paused\n1/1\n1x 205\n12/29\n?x 195');
+ await page.getByRole('button',{name:'Import journal',exact:false}).last().click();
+ await page.getByRole('status').filter({hasText:'Imported 0 new sessions'}).waitFor();
+ await page.getByPlaceholder('Search notes, exercise, location…').fill('2025-12-29');
+ await page.getByText('Some entries need review').waitFor();
+ assert.equal(await page.locator('article.workout').count(),1);
+ await page.getByRole('button',{name:'Progress',exact:true}).click();
+ await page.locator('.recharts-line').waitFor();
+ assert.deepEqual(errors,[]);
+ if (process.env.TEST_OFFLINE) {
+  await page.evaluate(async()=>{await navigator.serviceWorker.ready;});
+  await page.reload();
+  await page.waitForFunction(()=>!!navigator.serviceWorker.controller);
+  await page.getByRole('button',{name:'Journal',exact:true}).click();
+  await page.context().setOffline(true);
+  await page.reload();
+  await page.getByText('Offline · ready to log').waitFor();
+  await page.getByPlaceholder('3x 225 paused').fill('5x 185 flat');
+  await page.getByRole('button',{name:'Save set',exact:true}).click();
+  await page.getByRole('status').filter({hasText:'Set saved'}).waitFor();
+  console.log('PASS: production reload and set persistence offline');
+ }
+ await page.screenshot({path:'/workspace/workout-tracker/mobile-smoke.png',fullPage:true});
+ console.log('PASS: mobile logging, persistence, journal import, deduplication, search, and progress chart');
+ await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});
