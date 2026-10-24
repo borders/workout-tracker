@@ -1,5 +1,7 @@
-export type SetEntry = { id: string; reps: number | null; weight: number; exercise: string; notes: string; raw: string; kind: 'reps' | 'hold'; flags: string[] };
-export type Workout = { id: string; date: string; dateLabel: string; location: string; notes: string; sets: SetEntry[]; raw: string; flags: string[]; updatedAt: string };
+export type SessionContext = { bodyWeight?: number; bodyWeightUnit?: 'lb' | 'kg'; sleepHours?: number; sleepQuality?: string; fueling?: string; readiness?: string };
+export type SetDetails = { pause?: string; buttFlat?: boolean; feetUp?: boolean; difficulty?: string };
+export type SetEntry = { id: string; reps: number | null; weight: number; exercise: string; notes: string; raw: string; kind: 'reps' | 'hold'; flags: string[]; details?: SetDetails; loggedAt?: string; completedAt?: string; restBeforeSeconds?: number };
+export type Workout = { id: string; date: string; dateLabel: string; location: string; notes: string; sets: SetEntry[]; raw: string; flags: string[]; updatedAt: string; context?: SessionContext };
 export type JournalImport = { id: string; text: string; importedAt: string };
 const hash = (s: string) => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return (h >>> 0).toString(16); };
 export function parseSet(raw: string, exercise = 'Barbell bench press'): SetEntry | null {
@@ -42,3 +44,24 @@ export function parseJournal(text: string, newestYear = 2026): Workout[] {
 }
 export function volume(w: Workout, exercise?: string) { return w.sets.filter(s => s.kind === 'reps' && (!exercise || s.exercise === exercise)).reduce((n, s) => n + (s.reps ?? 0) * s.weight, 0); }
 export function estimatedMax(s: SetEntry) { return s.kind === 'reps' && s.reps !== null && s.reps > 0 && s.reps <= 10 ? s.reps === 1 ? s.weight : s.weight * (1 + s.reps / 30) : null; }
+
+export function parseDuration(value: string): number | undefined {
+  if (!value.trim()) return undefined;
+  const match = value.trim().match(/^(\d+):([0-5]\d)$/);
+  if (!match) throw new Error('Enter a duration as minutes:seconds, for example 3:00.');
+  const seconds = Number(match[1]) * 60 + Number(match[2]);
+  if (!Number.isSafeInteger(seconds)) throw new Error('Duration is too large.');
+  return seconds;
+}
+export function formatDuration(seconds: number): string {
+  const n = Math.max(0, Math.floor(seconds));
+  return `${Math.floor(n / 60)}:${String(n % 60).padStart(2, '0')}`;
+}
+export function timeBetweenSets(previous: SetEntry | undefined, current: SetEntry): number | undefined {
+  if (!previous?.completedAt || !current.completedAt) return undefined;
+  const seconds = (Date.parse(current.completedAt) - Date.parse(previous.completedAt)) / 1000;
+  return Number.isFinite(seconds) && seconds >= 0 ? seconds : undefined;
+}
+export function detailsText(s: SetEntry): string {
+  return [s.details?.pause, s.details?.buttFlat ? 'Butt flat' : '', s.details?.feetUp ? 'Feet up' : '', s.details?.difficulty, s.notes].filter(Boolean).join(' · ');
+}

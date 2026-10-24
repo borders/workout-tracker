@@ -18,6 +18,7 @@ npm run dev
 npm test
 npm run build
 npm run test:browser
+node scripts/logging-smoke.cjs
 # For production offline checks, first serve dist on port 4173:
 # npx vite preview --host 0.0.0.0 --port 4173
 APP_URL=http://localhost:4173 TEST_OFFLINE=1 npm run test:browser
@@ -27,8 +28,11 @@ The browser smoke test uses its own temporary browser profile and synthetic fixt
 
 ## Current capabilities
 
-- Set entry in journal notation, including notes, decimal and unknown repetitions.
-- Multiple exercise types, editable historical sessions (add/remove sets).
+- Separate weight and reps inputs, pause selection, butt-flat and feet-up toggles, difficulty, and set notes. Reps, weight, pause, and position carry forward within an exercise; difficulty and notes reset after saving. Journal text imports still support decimal and unknown repetitions.
+- Optional session context: body weight (lb/kg), sleep hours and quality, fueling, readiness, and session notes. Save separately or along with a set. Each session starts with its own context.
+- Rest timer with optional auto-start, presets/custom duration, pause/resume, +30 seconds, skip, overtime display, and opt-in foreground sound. Timer deadlines persist across reloads; sound must be re-enabled by a tap after reload. Background/locked-screen alarms are not guaranteed.
+- Actual logging timestamps and editable completion timestamps. Completion intervals and explicitly entered rest durations remain separate. Existing imported timestamps are not invented.
+- Multiple exercise types, editable historical sessions (add/edit/remove sets).
 - Searchable history, source text inspection, and JSON export including full import sources.
 - Text import with newest-year anchoring, year rollover inference, invalid-date flags, stable session IDs, and exact repeat deduplication.
 - Per-exercise estimated 1RM chart. Singles use actual weight; Epley applies to 2–10 reps. Holds and failed/unknown reps are excluded.
@@ -51,3 +55,9 @@ DreamHost-compatible PHP 8 and MySQL, with a single user and password-hashed log
 ## Privacy
 
 Personal imports and exports should stay outside Git (use ignored `private-data/`). No telemetry or hosted data service is configured. Fonts use the system font stack; no remote font requests are made.
+
+## Updating your local ZIP checkout
+
+Stop Vite with Ctrl+C, download a fresh ZIP from GitHub, extract it, and run `npm ci` and `npm run dev` in the new directory. Use the same browser profile, hostname, and port to retain local IndexedDB data. Export a backup first. The bundled journal is imported once and does not replace your edits.
+
+If you cloned with Git instead, stop Vite and use `git pull --ff-only`, `npm ci`, and `npm run dev`.
