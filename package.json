@@ -8,7 +8,9 @@
     "build": "tsc --noEmit && vite build",
     "test": "vitest run",
     "test:browser": "node scripts/smoke.cjs",
-    "test:logging": "node scripts/logging-smoke.cjs"
+    "test:logging": "node scripts/logging-smoke.cjs",
+    "build:hosted": "tsc --noEmit && vite build --base=/workouts/",
+    "deploy:dreamhost": "npm run build:hosted && bash scripts/deploy-dreamhost.sh"
   },
   "dependencies": {
     "idb": "^8.0.0",

@@ -61,3 +61,7 @@ Personal imports and exports should stay outside Git (use ignored `private-data/
 Stop Vite with Ctrl+C, download a fresh ZIP from GitHub, extract it, and run `npm ci` and `npm run dev` in the new directory. Use the same browser profile, hostname, and port to retain local IndexedDB data. Export a backup first. The bundled journal is imported once and does not replace your edits.
 
 If you cloned with Git instead, stop Vite and use `git pull --ff-only`, `npm ci`, and `npm run dev`.
+
+## Hosting on DreamHost
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for the protected `/workouts/` deployment. Use `npm run deploy:dreamhost` from your computer after updating this checkout. This builds a subdirectory-aware bundle and prompts for SSH authentication and a separate website password. Direct deployment from the cloud workspace is currently blocked by network access; no DreamHost files have been changed by the cloud setup.

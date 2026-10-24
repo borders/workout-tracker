@@ -25,4 +25,4 @@ function App() {
  <footer>BUILT FOR THE LONG RUN. <span>YOUR WORK. YOUR RECORD.</span></footer></div></main></>;
 }
 createRoot(document.getElementById('root')!).render(<App/>);
-if ('serviceWorker' in navigator && import.meta.env.PROD) navigator.serviceWorker.register('./sw.js').catch(console.error);
+if ('serviceWorker' in navigator && import.meta.env.PROD) navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`, { scope: import.meta.env.BASE_URL }).catch(console.error);
