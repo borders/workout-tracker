@@ -34,7 +34,7 @@ export function parseJournal(text: string, newestYear = 2026): Workout[] {
     if (!current) continue;
     current.raw += '\n' + line;
     const set = parseSet(line, defaultExercise);
-    if (set) current.sets.push(set);
+    if (set) { current.sets.push(set); defaultExercise = set.exercise; }
     else if (line.trim()) current.notes += (current.notes ? '\n' : '') + line;
   }
   for (const w of workouts) w.id = 'import-' + hash(w.dateLabel + '\n' + w.raw.trim());

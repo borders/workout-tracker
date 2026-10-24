@@ -7,3 +7,5 @@ describe('journal import',()=>{
  it('keeps failed lifts, partial reps, timestamps and unusual weights',()=>{expect(parseSet('0x 248 fail 7:45')?.reps).toBe(0);expect(estimatedMax(parseSet('0x 248 fail')!)).toBe(null);expect(parseSet('4.8x 206')?.flags).toContain('Partial repetition');expect(parseSet('4z 215 9:22')?.flags).toContain('Check set notation');expect(parseSet('6x 116')?.weight).toBe(116);});
  it('does not manufacture a valid date',()=>{expect(parseJournal('2/31 home\n3x 225')[0].date).toBe('');});
 });
+
+it('carries explicit equipment forward only within the same workout',()=>{const ws=parseJournal('10/2\n12x 50lb dumbbells\n10x 50lb\n10x 50 lb\n10/1\n3x 225');expect(ws[0].sets.every(s=>s.exercise==='Dumbbell bench press')).toBe(true);expect(ws[1].sets[0].exercise).toBe('Barbell bench press');});

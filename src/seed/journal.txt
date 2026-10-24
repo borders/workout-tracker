@@ -1,0 +1,3664 @@
+Bench 
+
+10/21 home
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused feet up
+3x 205 paused feet up
+3x 215 paused 
+1x 235 long paused
+1x 255 flat
+1x 260 flat
+6x 225 flat
+
+10/20 home
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused feet up
+3x 205 paused
+3x 215 paused 
+3x 225 long paused
+3x 225 paused
+3x 225 paused
+
+10/18 home
+10x 135 paused 
+5x 175 paused feet up
+3x 195 paused feet up
+3x 205 paused
+3x 215 paused
+5x 225 flat
+5x 225 flat
+
+10/17 home2 (1.06, 157 cal)
+10x 55
+10x 60
+10x 65
+10x 70
+10x 75
+
+10/16 Hampton (1.1 mi, 161 cal)
+10x 55 
+10x 60 
+10x 65
+10x 70
+?x 75
+
+10/15 Hampton (1.16 mi, 164 cal)
+10x 55
+10x 60
+10x 65
+10x 70
+10x 75
+
+10/14 Hampton
+10x 55
+10x 60
+10x 65
+10x 70
+10x 75
+
+10/13 home
+10x 135 paused feet up
+5x 175 paused feet up
+1x 195 paused 
+1x 215 flat
+1x 235 flat
+1x 255 flat-ish
+1x 260 battle
+5x 225 flat
+
+10/12 home
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+3x 205 paused
+3x 215 paused
+3x 225 paused, long
+10x 175 paused
+
+10/11 home
+10x 135 paused feet up
+5x 175 paused feet up 
+3x 195 paused
+3x 215 paused
+3x 225 long paused
+5x 225 flat
+4x 225 flat
+
+10/9 home
+10x 135 paused
+10x 135 flat
+10x 155 flat
+10x 175 flat
+10x 175 flat
+10x 175 flat
+
+10/8 home
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+1x 215 flat
+1x 235 flat
+1x 245 flat
+1x 250 flat
+1x 255 flat (barely)
+
+10/7 home
+20x 45 paused feet up
+10x 135 paused feet up 
+5x 175 paused feet up 
+3x 195 paused
+3x 215 paused
+3x 225 paused, slow, long 
+3x 230 flat
+3x 235 flat
+
+10/5 home
+20x 45 paused
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+
+10/4 home
+20x 45 paused 
+10x 135 paused
+5x 175 paused
+3x 195 paused
+3x 205 paused
+3x 215 paused 
+3x 225 slow, long paused
+
+10/1 Hampton (1.13 mi, 165 cal)
+10x 55
+10x 60
+10x 65
+10x 70
+10x 75
+Later did 4.1 mi at 2+ inc (500+ Cal)
+
+9/30 Hampton (1.12, 166 cal)
+10x 55
+10x 60
+10x 65
+10x 70
+?x 75
+
+9/29 Hampton (1.12 mi, 165 cal)
+10x 55
+10x 60
+10x 65
+10x 70
+10x 75
+
+9/28 Hampton (1.15 mi, 165 cal)
+10x 55
+10x 60
+10x 65
+10x 70
+?x 75
+
+9/27 Hampton (1.1 mi, 162 cal)
+10x 55
+10x 60
+10x 65
+10x 70
+
+9/26 Hampton (2.04 mi, 239 cal)
+10x 55
+10x 60
+10x 65
+10x 70
+10x 75
+
+9/25 Hampton (2 miles)
+10x 55
+10x 60
+10x 65
+10x 70
+10x 75
+
+9/24 Hampton (1 mile)
+10x 55
+10x 60
+10x 65
+10x 70
+?x 75
+
+9/22 Hampton (1.1 miles)
+10x 55
+10x 60
+10x 65
+10x 70
+10x 75
+
+9/21 Hampton (1 mile)
+10x 55
+10x 60
+10x 65
+10x 70
+?x 75
+
+9/20 (1 mile)
+10x 60
+10x 65 
+10x 70
+?x 75
+
+9/19 Hampton (1 mile)
+10x 60
+10x 65
+10x 70
+10x 75
+
+9/18 Hampton (1.1 miles)
+10x 60
+10x 65
+10x 70
+10x 75
+
+9/17 Hampton (no treadmill)
+10x 60
+10x 65 
+10x 70
+10x 75
+
+9/16 Hampton (2.06 miles)
+10x 60
+10x 65
+10x 70
+10x 75
+
+9/15 Hampton (1 mile)
+10x 60
+10x 65
+10x 70
+10x 75
+
+9/14 Hampton (1 mile)
+10x 60
+10x 65
+10x 70
+10x 75
+
+9/13 Hampton (1 mile)
+10x 60
+10x 65
+10x 70
+10x 75
+
+9/12 Hampton (1 mile)
+10x 60
+10x 65
+10x 70
+10x 75
+
+9/11 Hampton (2 miles)
+10x 60
+10x 65
+10x 70
+10x 75
+
+9/10 Hampton (1 mile)
+10x 60
+10x 65
+10x 70
+10x 75
+
+9/9 Hampton (1 mile)
+10x 60
+10x 65
+10x 70
+10x 75 
+10x 75
+
+9/8 Hampton (1 mile)
+10x 55
+10x 60
+10x 65
+10x 70
+10x 75
+10x 75
+
+9/7 Hampton (1 mile)
+10x 55
+10x 60
+10x 65
+10x 70
+10x 75
+10x 75
+
+9/5 home
+10x 125 paused feet up
+7x 145 paused feet up
+5x 165 paused feet up
+3x 185 paused
+3x 205 paused
+1x 225 flat
+2x 245 flat
+1x 255
+
+9/3 home
+10x 125 paused feet up
+10x 145 paused feet up
+10x 165 paused 
+10x 185 paused
+7x 205 paused (edge of failure)
+4x 225 paused (close to failure)
+
+9/2 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+3x 215 paused
+3x 225 paused
+3x 215 paused
+
+8/31 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+1x 215 paused
+1x 235 flat
+1x 255 flat
+5x 225 flat
+
+8/28 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+5x 195 paused
+5x 215 paused 
+2x 235 flat
+1x 255 flat (moved ok)
+5x 225 flat
+
+8/26 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+5x 195 paused
+5x 195 paused
+3x 215 paused 
+3x 225 paused
+
+8/25 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused 
+3x 215 paused
+4x 235 flat
+1x 255 flat (moved well)
+1x 260 flat (stalled midway and got it)
+
+8/23 Georgetown
+10x 50 
+10x 55 
+10x 60
+10x 65
+10x 70
+10x 75
+
+8/22 Georgetown
+10x 55
+10x 60 
+10x 65
+10x 70
+10x 75
+
+8/20 Georgetown 
+10x 55
+10x 60
+10x 65
+10x 70
+10x 75
+
+8/18 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+1x 215 paused
+1x 235 flat
+1x 260 flat (moved well, controlled descent)
+4x 235 flat
+
+8/17 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+3x 215 paused 
+3x 225 paused
+3x 225 paused
+3x 225 paused
+3x 225 paused
+
+8/15 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+1x 215 paused
+1x 235 flat
+1x 255 flat (moved well, totally flat)
+5x 225 flat
+
+8/13 home
+20x 45 paused
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+3x 215 paused
+4x 235 flat
+5x 225 flat
+
+8/11 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+1x 195 paused 
+1x 215 flat
+1x 235 flat
+1x 255 flat (moved well)
+6x 225 flat 
+
+8/10 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused 
+3x 215 paused
+1x 235 flat
+2x 245 flat (not bad)
+6x 215 flat
+
+8/9 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+3x 205 paused
+3x 215 paused
+3x 225 paused (moved well)
+5x 205 paused
+10x 185 flat
+
+8/8 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+1x 195 paused
+1x 215 paused 
+1x 235 flat (moved well)
+2x 245 flat (moved well)
+5x 225 flat
+5x 215 flat (easier)
+5x 205 paused
+
+8/6 home
+20x 45 paused feet up
+10x 135 paused feet up
+3x 175 paused feet up
+2x 195 paused
+1x 215 paused
+1x 235 flat (moved well)
+1x 255 flat-ish (moved well)
+5 x 215 flat (chest sore)
+
+8/5 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+1x 215 paused
+1x 225 flat
+2x 245 flat
+5x 225 flat
+5x 215 flat 
+8x 195 flat
+10x 175 long paused
+
+8/3 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+3x 215 long paused
+4x 225 flat
+3x 225 flat
+
+7/30 home
+20x 45 paused feet up
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+1x 215 long paused
+1x 235 flat
+1x 255 flat
+
+7/28 home
+20x 45 paused
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+3x 215 paused
+
+7/27 home
+20x 45 paused
+10x 135 paused legs up 
+5x 175 paused legs up
+2x 195 paused
+1x 215 long paused
+1x 225 flat
+1x 235 flat
+1x 245 flat
+1x 255 flat (moved well)
+1x 260 flat 
+
+7/26 home
+20x 45 paused
+10x 135 paused feet up
+5x 175 paused feet up
+3x 195 paused
+1x 215 long paused
+4x 225 flat
+8x 175 long paused 
+
+7/23 home
+20x 45 paused
+10x 135 paused
+5x 175 paused
+3x 195 paused
+1x 215 long paused
+5x 225 flat
+10x 175 long paused
+
+7/22 home
+20x 45 paused
+10x 135 paused
+5x 175 paused
+3x 195 paused
+3x 205 paused
+3x 215 paused
+10x 175 long paused
+
+7/19 home
+20x 45 paused
+10x 135 paused, feet up
+5x 175 paused, feet up
+3x 195 paused
+3x 205 paused
+3x 215 paused
+10x 175 last rep paused
+
+7/18 home
+20x 45 paused
+10x 135 paused
+3x 175 paused
+3x 195 paused
+3x 205 paused
+3x 215 paused
+4x 225 flat
+
+7/16 Hampton
+10x 55 db
+10x 60 db
+10x 65 db
+10x 70 db very sore
+
+7/15 Hampton
+10x 55 db
+10x 60 db
+10x 65 db
+10x 70 db
+10x 75 db
+
+7/14 Hampton
+10x 55 db
+10x 60 db
+10x 65 db
+10x 70 db
+10x 75 db
+
+7/13 Hampton
+10x 55 db
+10x 60 db
+10x 65 db
+10x 70 db
+10x 75 db
+
+7/12 Hampton
+10x 55 db
+10x 60 db
+10x 65 db
+10x 70 db
+9x 75 db
+
+7/11 Hampton
+10x 55 db
+10x 60 db
+10x 65 db
+10x 70 db
+9x 75 db
+
+7/9 home
+20x 45 paused
+10x 135 paused
+5x 175 paused
+3x 195 paused
+3x 205 paused
+3x 215 paused
+
+7/7 home
+20x 45 paused
+10x 135 paused
+4x 175 paused
+3x 195 paused
+3x 205 paused
+3x 215 paused
+3x 225 flat-ish
+
+7/6 home
+20x 35 paused
+10x 135 paused
+3x 175 paused
+3x 195 paused
+3x 205 paused
+3x 215 paused (last was tag)
+
+6/25 home
+20x 45 paused
+10x 135 paused
+4x 175 paused
+3x 195 paused
+3x 205 paused
+3x 215 paused
+3x 225 paused
+
+6/23 home
+20x 35 paused
+10x 135 paused
+3x 175 paused
+3x 195 paused
+3x 205 paused
+3x 215 paused
+3x 225 paused
+5x 225 flat
+10x 185 flat, last rep paused
+
+6/20 home
+20x 45 paused
+10x 135 paused
+3x 175 paused
+3x 195 paused
+3x 205 paused
+3x 215 paused
+3x 225 paused
+10x 185 flat
+
+6/19 home
+20x 45 paused
+10x 135 paused
+3x 175 paused
+3x 195 paused
+3x 205 paused
+3x 215 paused
+3x 225 paused
+8x 185 paused
+
+6/14 home
+20x 45 paused
+10x 135 paused
+3x 175 paused
+3x 195 paused
+3x 205 paused
+3x 215 paused
+3x 225 paused slow down
+1x 245 flat (shoulder sore)
+6x 195 paused
+
+6/13 home
+20x 35 paused
+10x 125 paused
+3x 175 paused
+3x 195 paused
+3x 215 paused
+3x 225 paused
+
+6/8 home
+20x 45 paused
+10x 135 paused
+3x 175 paused
+3x 195 paused
+3x 215 paused
+3x 225 paused
+3x 225 paused
+6x 195 paused (long pauses)
+
+6/6 home
+20x 35 paused
+10x 125 paused
+3x 175 paused
+3x 195 paused
+3x 215 paused
+3x 225 paused
+
+6/5 home
+20x 35 paused
+10x 125 paused
+3x 175 paused
+3x 195 paused
+3x 215 paused
+3x 225 paused
+3x 230 paused
+3x 220 paused
+6x 195 paused
+
+6/3 home
+20x 35 paused
+10x 125 paused
+3x 175 paused
+9x 195 flat
+8x 195 flat
+
+6/2 gym
+10x 130 bench machine
+10x 150 bench machine 
+10x 170 bench machine 
+10x 190 bench machine 
+8x 210 bench machine 
+10x 65 db bench
+
+6/1 home
+20x 35 paused
+10x 125 paused
+3x 175 paused
+10x 195 flat
+10x 195 flat
+9x 195 flat
+10x 185 flat
+10x 20 db op
+
+5/31 home
+20x 35 paused
+10x 125 paused
+3x 175 paused
+7x 205
+7x 205
+
+5/28 home
+20x 35 paused
+8x 125 paused
+3x 175 paused
+1x 215 paused
+2x 245 flat
+1x 255 flat
+5x 225 flat
+10x 175 flat
+
+5/27 home
+20x 35 paused
+8x 125 paused
+3x 175 paused
+1x 215 paused
+8x 205 flat
+8x 205 flat
+7x 205 flat
+7x 205 flat
+
+5/26 home
+20x 35 paused
+8x 125 paused 
+3x 175 paused 
+1x 215 paused
+1x 265 static hold, 20 sec
+8x 205 flat
+7x 205 flat
+7x 205 flat
+6x 205 flat
+
+5/25 home
+20x 35 paused
+8x 125 paused
+3x 175 paused
+1x 215 paused
+1x 265 static hold, 15 sec
+1x 245 flat shoulder too sore
+5x 215 flat
+7x 205 flat
+7x 195 flat
+10x 185 flat
+10x 175 flat, last rep paused
+10x 175 flat, last rep paused
+9x 175 flat (on phone)
+
+5/21 home
+10x 45 paused
+8x 125 paused
+3x 175 paused
+1x 215 paused 
+1x 255 static hold, 12 sec
+5x 225 flat
+5x 225 flat
+5x 225 flat-ish (struggle)
+10x 20 db op
+10x 20 db op
+10x 25 db op
+10x 30 db op
+10x 35 db op
+20x 50 db bench 
+15x 50 db bench
+16x 135 bench paused 
+
+5/20 gym
+10x 20 db op
+10x 55 db bench
+10x 20 db op
+10x 60 db bench
+10x 20 db op
+10x 65 db bench
+10x 20 db op
+10x 70 db bench
+10x 20 db op
+10x 75 db bench
+
+5/18 gym
+10x 20 db op
+10x 130 eagle chest press
+10x 20 db op
+10x 150 eagle chest press
+10x 20 db op
+10x 170 eagle chest press
+10x 20 db op
+10x 190 eagle chest press
+10x 20 db op
+9x 70 db bench
+?x 20 db op
+
+5/17 gym (after 2.5 hrs surfing)
+10x 55 db bench
+10x 20 db op
+10x 60 db bench
+10x 20 db op
+10x 65 db bench
+10x 25 db op
+10x 70 db bench
+10x 20 db op
+9x 75 db bench
+
+5/14 home
+8x 135 paused
+3x 185 paused
+1x 215 paused
+1x 235 flat
+1x 255 flat shoulder sore
+1x 265 flat ish (shoulder sore)
+6x 215 flat 
+4x 215 flat (1 min rest)
+
+5/13 gym
+10x 20 db op
+10x 210 leg press 
+10x 25 db op
+10x 230 leg press
+10x 30 db op
+10x 250 leg press
+10x 35 db op
+
+5/12 gym
+10x 20 db op
+10x 210 leg press
+10x 25 db op
+10x 230 leg press
+10x 30 db op
+10x 250 leg press
+10x 35 db op
+10x 270 leg press
+8x 40 db op
+
+5/11 home
+10x 135 paused
+5x 185 paused
+3x 215 paused
+5x 225 flat
+5x 225 flat
+5x 225 flat
+6x 215 flat
+10x 20 db op
+10x 25 db op
+10x 30 db op
+10x 35 db op
+
+5/10 gym
+10x 20 db op
+10x 210 leg press
+10x 25 db op
+10x 230 leg press 
+10x 30 db op
+10x 250 leg press
+10x 35 db op
+10x 270 leg press
+10x 40 db op
+8x 290 leg press 
+8x 45 db op
+
+5/8 home
+10x 135 paused
+5x 185 paused
+3x 215 long paused
+3x 245 flat
+5x 225 flat
+5x 225 flat
+5x 225 flat
+
+5/6 gym
+12x 20 db op
+10x 210 leg press 
+10x 25 db op
+10x 230 leg press
+10x 30 db op
+10x 250 leg press
+10x 35 db op
+10x 270 leg press
+8x 40 db op
+
+5/5 home
+10x 135 paused
+5x 185 paused
+3x 215 paused
+1x 235 flat
+2x 255 flat-ish
+1x 265 flat-ish
+5x 230 
+5x 225 flat
+
+5/3 hotel
+12x 20 db op
+10x 60 db bench
+10x 25 db op
+10x 65 db bench
+10x 30 db op
+10x 70 db bench
+10x 35 db op
+10x 75 db bench
+8x 40 db op
+10x 75 db bench
+5x 45 db op 
+
+5/2 hotel
+10x 20 db op
+10x 60 db bench
+10x 25 db op
+10x 65 db bench
+10x 30 db op
+10x 70 db bench
+10x 35 db op
+10x 75 db bench
+8x 40 db op
+
+5/1 hotel
+10x 60 db bench long paused
+10x 20 db op
+10x 65 db bench 
+10x 25 db op
+10x 70 db bench 
+10x 30 db op
+10x 75 db bench
+8x 35 db op
+
+4/30 hotel
+8x 35 db op
+10x 60 db bench
+10x 65 db bench
+10x 70 db bench
+10x 75 db bench 
+10x 75 db bench
+10x 75 db bench 
+12x 65 db bench 
+
+4/29 gym
+10x 210 leg press
+10x 150 eagle row 
+10x 35 db op
+10x 230 leg press
+10x 150 eagle row 
+10x 60 db bench
+10x 250 leg press
+10x 150 eagle row 
+10x 65 db bench
+10x 270 leg press 
+10x 70 db bench
+8x 290 leg press 
+10x 75 db bench 
+
+4/28 bench
+10x 135 paused
+5x 185 paused
+3x 225 paused
+3x 245 flat
+3x 245 flat
+4x 235 flat
+5x 225 flat
+
+4/27 gym
+10x 35 db op
+10x 210 leg press
+10x 150 eagle row 
+10x 40 db op
+10x 230 leg press
+10x 150 eagle row
+10x 40 db op
+10x 250 leg press
+10x 150 eagle row
+10x 40 db op
+10x 270 leg press
+10x 150 eagle row 
+10x 35 db op
+
+4/26 gym
+10x 205 leg press
+10x 35 db op
+10x 225 leg press
+10x 145 eagle row
+8x 40 db op
+10x 245 leg press 
+10x 145 eagle row 
+7x 45 db op
+10x 265 leg press 
+10x 145 eagle row 
+5x 50 db op
+8x 285 leg press
+10x 70 db bench
+
+4/25 bench
+10x 135 paused
+5x 185 paused
+3x 215 paused
+1x 235 flat 
+2x 255 flat-ish
+5x 225 flat
+5x 230 flat-ish
+4x 230 flat
+
+4/24
+10x 25 db overhead press
+10x 30 db overhead 
+8x 40 db overhead 
+
+4/23 gym
+10x 145 eagle row 
+10x 60 db
+10x 145 eagle row 
+10x 65 db
+10x 205 leg press
+10x 165 eagle row
+10x 70 db press
+10x 225 leg press
+10x 165 eagle row 
+10x 75 db press
+10x 245 leg press
+10x 165 eagle row 
+10x 75 db press 
+10x 265 leg press 
+
+4/22
+10x 135 paused
+5x 185 paused
+3x 215 paused
+1x 235 flat
+1x 255 flat (moved good)
+1x 275 flat-ish (crazy battle) PR
+5x 225 flat
+6x 225 flat
+
+4/21 gym
+10x 205 leg press
+10x 145 eagle row
+10x 205 leg press 
+10x 145 eagle row
+10x 225 leg press 
+10x 165 eagle row
+10x 245 leg press 
+10x 165 eagle row
+10x 245 leg press
+
+4/20 gym
+10x 130 eagle row
+10x 190 leg press
+10 x 60 db
+10x 130 eagle row
+10x 210 leg press
+10x 65 db
+10x 150 eagle row
+10x 230 leg press
+10x 70 db
+10x 150 eagle row
+10x 230 leg press
+10x 75 db
+
+4/19
+10x 135 paused
+5x 185 paused
+3x 205 paused
+1x 225 flat
+1x 245 flat, light
+1x 265 flat (not bad)
+1x 270 flat (slight battle) PR
+5x 225 flat
+5x 225 flat
+5x 225 flat
+
+4/18 gym
+10x 60 db
+10x 130 eagle row
+10x 190 leg press 
+10x 65 db
+10x 130 eagle row
+10x 190 leg press 
+10x 70 db
+10x 130 eagle row
+10x 190 leg press 
+10x 75 db
+10x 130 eagle row
+10x 210 leg press
+
+4/16
+10x 135 paused
+5x 185 paused
+3x 205 paused
+1x 225 flat
+3x 245 flat-ish
+2x 245 failed on 3rd
+5x 225 flat
+5x 225 flat
+
+4/14
+10x 125 paused
+5x 185 paused
+3x 205 paused
+1x 225 flat
+3x 245 flat
+3x 245 flat
+5x 225 flat
+5x 225 flat
+10x 185 flat short rest
+
+4/12 home
+10x 125 paused
+5x 175 paused
+2x 215 paused
+3x 245 flat-ish
+3x 245 flat-ish
+5x 225 flat
+5x 225 flat
+5x 225 flat
+
+4/9 home
+10x 125 paused
+5x 175 paused
+3x 215 paused
+3x 245 flat
+5x 235 flat-ish
+4x 235 flat
+
+4/8 gym
+10x 60 db
+10x 210 leg press
+10x 65 db
+10 210 leg press
+10x 70 db
+10x 210 leg press
+8x 75 db
+
+4/7 new home 
+10x 125 paused
+5x 175 paused
+3x 205 paused
+1x 225 flat
+3x 245 flat (not bad)
+5x 225 flat
+5x 225 flat
+5x 225 flat
+
+4/6 gym
+10x 50 db bench
+15x 230 leg press 
+10x 60 db press
+12x 230 leg press (“2” setting, top weight 10)
+10x 70 db press 
+10x 230 leg press
+10x 75 db press
+10x 230 leg press
+10x 75 db press
+10x 210 leg press
+10x 75 db press
+
+4/4
+10x 125 paused
+5x 185 paused
+3x 205 paused
+1x 225 flat
+3x 245 flat
+5x 225 flat
+5x 225 flat
+6x 225 flat
+12x 185
+
+4/3 home
+8x 125 paused
+5x 175 paused
+3x 205 paused
+1x 225 paused
+3x 245 flat
+5x 225 flat
+12x 185 flat
+
+4/2 YMCA
+10x 135 paused
+5x 185 paused
+3x 205 paused
+5x 225 flat and slow 
+5x 225 flat and slow
+5x 225 flat and slow
+10x 185 paused
+
+4/1 YMCA
+10x 135 paused
+5x 185 paused
+1x 205 paused
+1x 225 paused 
+2x 245 flat (pretty easy)
+1x 255 flat (pretty easy, no legs)
+5x 225 flat (blinding sun)
+5x 225 flat (blinded)
+5x 225 flat (tough)
+12x 185 flat (almost failure)
+
+3/30 YMCA decline bench
+10x 135 paused
+5x 185 paused
+5x 205 
+5x 225 
+5x 225 (barely)
+5x 225 (easier?)
+5x 225 (barely)
+6x 185 flat bench (almost dropped on my stomach)
+
+3/29
+10x 125 paused
+3x 175 paused
+8x 205 flat
+8x 205 flat
+8x 205 flat
+8x 205 flat
+12x 175 flat
+
+3/26
+10x 125 paused
+3x 175 paused
+1x 205 paused
+5x 225 flat
+5x 225 flat
+5x 225 flat
+7x 205 flat 
+12x 175 flat
+
+3/24 YMCA
+10x 115 paused
+5x 185 paused
+5x 225 flat 
+2x 245 flat missed slot narrow grip 
+5x 225 flat wide grip
+8x 205 flat
+9x 185 flat
+
+3/23 YMCA
+10x 60 db
+10x 70 db
+8x 80 db
+6x 90 db
+6x 90 db
+6x 90 db
+5x 135 paused bench
+3x 225 flat
+
+3/21 YMCA
+10x 135 paused
+3x 185 paused
+1x 225 flat
+3x 245 flat
+1x 265 flat (pretty easy)
+5x 225 flat (pretty easy)
+8x 205 flat short rest 
+
+3/20 YMCA bench
+10x 135 paused 
+3x 185 paused 
+2x 205 paused
+5x 225 flat
+5x 225 flat
+5x 225 flat
+11x 185 flat
+
+3/19 dumbbells 
+10x 55
+10x 65
+10x 75
+8x 80
+7x 85
+6x 90
+3x 95
+7x 80
+
+3/16
+10x 125 paused
+3x 175 paused
+1x 205 paused
+5x 225 flat wraps
+5x 225 flat wraps
+5x 225 flat wraps
+7x 205 flat
+12x 175 flat 
+
+3/13
+10x 125 paused
+3x 175 paused
+1x 205 paused 
+1x 225 flat wraps 
+1x 245 flat wraps (easy)
+5x 225 flat
+5x 225 flat wraps
+5x 225 flat wraps
+7x 205 flat
+12x 175 flat
+10x 175 flat
+
+3/10
+10x 125 paused
+3x 175 paused
+1x 205 paused 
+5x 225 flat
+5x 225 
+4x 225 flat
+4x 225 flat
+7x 205 flat
+12x 175 flat
+
+3/7
+8x 125 paused
+3x 175 paused
+1x 205 paused
+1x 225 flat
+1x 245 flat wraps (easy)
+1x 260 wraps (almost flat)
+5x 225 flat raw
+5x 225 flat raw
+5x 225 raw
+10x 175 flat, last paused 
+
+3/4
+8x 125 paused
+3x 175 paused
+1x 205 paused
+4x 225 flat
+4x 225 flat
+4x 225 flat 
+4x 225 flat
+10x 175 flat
+10x 175 flat
+
+3/1
+8x 125 paused
+3x 175 paused
+7x 205 flat
+7x 205 flat
+7x 205 flat
+6x 205 flat
+10x 175 flat
+10x 175 flat 
+
+2/26
+8x 125 paused
+3x 175 paused 
+1x 205 paused 
+4x 225 flat
+4x 225 flat
+4x 225 flat
+4x 225 flat
+10x 175 flat raw
+10x 175 flat raw
+
+2/23
+8x 125 paused
+3x 175 paused
+1x 205 paused
+4x 225 flat
+4x 225 flat
+4x 225 flat
+5x 225
+
+2/19 elbow wraps 
+8x 125 paused 
+3x 175 paused
+1x 205 paused
+4x 225 flat
+4x 225 flat
+4x 225 flat
+4x 225 flat
+4x 225 flat
+
+2/16
+8x 125 paused 
+4x 175 paused
+1x 205 paused
+4x 225 
+4x 225
+4x 225
+
+2/12
+8x 125 paused 
+4x 175 paused
+1x 205 paused 
+4x 225 flat
+4x 225 flat
+4x 225 flat
+
+2/10
+8x 125 paused
+5x 175 paused
+1x 205 paused
+1x 225 flat
+1x 245 flat
+1x 255 tough 
+4x 225
+5x 215
+
+2/8
+8x 125 paused 
+4x 165 paused 
+3x 185
+1x 205
+1x 225
+1x 245 flat (not bad)
+1x 250 flat (not bad)
+4x 225
+
+2/6
+10x 125
+5x 165
+3x 185
+1x 205
+3x 225 flat
+5x 205 flat
+5x 205 flat
+5x 205 flat
+5x 205 flat 
+
+2/3
+10x 125
+5x 165
+3x 185
+1x 205
+3x 225 flat
+5x 205 flat
+5x 205 flat
+5x 205 flat
+5x 205 flat
+
+2/1 DB
+10x 50
+10x 60
+10x 70
+10x 75
+10x 75
+9x 75
+
+2.22 miles @ 4.0 mph
+1.0 miles @ 7.0 mph
+
+1/31 DB
+10x 50
+8x 60
+8x 70
+10x 75
+
+1/30 DB
+10x 50
+8x 60
+8x 70
+10x 75
+
+1/29 dumbbell bench
+8x 50
+8x 60
+8x 70
+8x 75
+8x 75
+8x 75
+
+1/28
+10x 125
+5x 165
+3x 185
+1x 205
+3x 225
+5x 205 flat
+5x 205 flat
+5x 205 flat
+
+1/26
+10x 125
+5x 145
+5x 165
+3x 185
+1x 205
+3x 225
+4x 205 flat
+4x 205 flat
+4x 205 flat 
+11x 165 flat
+
+1/23
+10x 125
+5x 145
+5x 165
+3x 185
+1x 205
+2x 225
+4x 205 flat
+4x 205 flat
+4x 205 flat
+4x 205
+
+1/20
+10x 125
+5x 145
+5x 165
+3x 185
+1x 205
+2x 225 flat
+4x 205 flat
+4x 205 flat
+4x 205 flat
+8x 185 flat
+
+1/17
+10x 125
+5x 145
+5x 165
+3x 185
+4x 205 flat
+4x 205 flat
+4x 205 flat
+4x 205 flat
+8x 185
+
+1/14
+10x 125
+5x 145
+5x 165
+3x 185
+4x 205 flat
+4x 205 flat
+4x 205
+3x 205 flat
+7x 185
+
+1/11
+10x 125
+5x 145
+5x 165
+3x 185
+4x 205 flat
+4x 205
+8x 185
+
+1/8
+10x 125
+10x 145
+10x 165
+6x 185
+3x 205
+6x 185
+9x 165
+
+1/5
+10x 125
+10x 145
+10x 165
+6x 185
+3x 205
+5x 185
+8x 165
+
+1/1
+10x 125
+10x 145
+10x 165
+6x 185
+2x 205
+5x 185
+8x 165
+
+12/29
+10x 125
+5x 175
+4x 195
+3x 205
+4x 195
+5x 185
+6x 175
+
+12/10
+10x 125
+3x 175
+4x 205 flat
+4x 205 flat
+4x 205 
+4x 205
+
+12/6
+10x 125
+3x 175
+4x 205 flat-ish
+4x 205 flat
+4x 205
+4x 205
+
+12/2
+10x 125
+3x 175
+1x 205
+4x 205 flat 
+4x 205 flat
+4x 205
+
+11/27
+10x 125
+3x 175
+1x 205
+1x 225 sore
+4x 205 not flat
+3x 205
+3x 205
+
+11/24
+10x 125
+3x 175
+1x 205
+2x 225
+4x 205 flat
+4x 205 flat
+4x 205
+
+11/20
+10x 125
+3x 175
+1x 205
+2x 225
+4x 205 flat
+4x 205 flat 
+4x 205 flat
+
+11/16
+10x 125
+3x 175
+1x 205
+1x 225 flat
+4x 205 flat
+4x 205 flat
+4x 205
+
+11/13
+10x 125
+3x 175
+1x 205
+2x 225
+4x 205
+4x 205
+3x 205
+
+11/9
+10x 125
+3x 175
+1x 205
+1x 225 
+4x 205 flat
+3x 205
+
+11/6
+10x 125
+3x 175
+1x 205
+2x 225
+4x 205 flat
+4x 205
+4x 205
+
+11/2
+10x 125
+3x 175
+1x 205
+2x 225
+4x 205
+4x 205
+4x 205
+
+10/30
+10x 125
+3x 175
+1x 205
+2x 225
+4x 205 flat
+4x 205
+3x 205
+
+10/26
+10x 125
+3x 175
+1x 205
+2x 225
+3x 205 shoulder too sore
+
+10/23
+10x 125
+3x 175
+1x 205
+2x 225
+4x 205 flat
+4x 205 flat
+4x 205
+
+10/20
+10x 125
+3x 175
+1x 205
+2x 225
+4x 205 flat
+4x 205 flat
+4x 205
+
+10/19
+10x 50lb db
+10x 60lb db
+10x 65lb db
+8x 70lb db
+7x 75lb db
+
+10/18
+10x 50lb db
+10x 60lb db
+10x 65lb db
+9x 70lb db
+8x 75lb db
+
+10/17
+10x 50lb db
+10x 60lb db
+8x 70lb db
+7x 75lb db
+
+10/16
+10x 50lb db
+10x 60lb db
+10x 65lb db
+8x 70lb db
+7x 75lb db
+
+10/13
+10x 125
+3x 175
+1x 205
+2x 225 not flat
+4x 205 flat
+4x 205 flat 
+4x 205
+
+10/10
+10x 125
+3x 175
+1x 205
+2x 225
+4x 205 not flat
+4x 205 flat
+3x 205 shoulder too sore
+
+10/7
+10x 125
+3x 165
+1x 205
+2x 225
+4x 205 flat
+4x 205 flat
+4x 205 
+4x 205 flat
+
+10/5
+10x 50lb db
+10x 60lb db
+8x 70lb db
+7x 75lb db
+8x 70lb db
+
+10/4
+10x 50lb db
+10x 50lb db
+10x 50lb db
+
+10/3
+10x 50lb db
+10x 50lb db
+10x 50lb db
+
+10/2
+12x 50lb dumbbells
+10x 50lb
+10x 50 lb
+
+10/1
+10x 125
+3x 175
+1x 205
+2x 225 flat
+4x 205 flat
+4x 205 flat
+4x 205 flat
+4x 205
+
+
+9/30
+10x 125
+3x 175
+1x 205
+2x 225 flat
+4x 205 flat
+4x 205 flat
+4x 205 flat
+4x 205
+
+9/26
+10x 125
+3x 175
+1x 205
+2x 225 flat
+4x 205 flat
+4x 205 flat
+4x 205 flat
+4x 205 flat
+
+9/23
+10x 125
+3x 175
+1x 205
+2x 225
+4x 205 flat
+4x 205 flat
+4x 205 flat
+4x 205
+
+9/20
+10x 125
+3x 175
+1x 205
+2x 225 flat
+4x 205 flat
+4x 205 flat
+4x 205 flat
+4x 205
+
+9/17
+10x 125
+3x 175
+1x 205
+2x 225
+4x 205 flat 
+4x 205 flat
+4x 205 flat
+4x 205 flat
+9x 175
+
+9/14
+10x 125
+3x 175
+1x 205
+2x 225
+4x 205 flat
+4x 205 flat
+4x 205
+4x 205
+9x 175
+
+9/11
+10x 125
+3x 175
+1x 205
+2x 225
+4x 205 flat
+4x 205
+4x 205
+4x 205
+
+9/8
+10x 125
+3x 175
+1x 205
+1x 225
+4x 205
+4x 205
+4x 205
+4x 205
+
+9/5
+10x 125
+3x 175
+1x 205
+1x 225
+4x 205
+3x 205
+3x 205
+3x 205
+3x 205
+
+9/2
+10x 125
+3x 175
+1x 205
+1x 225
+4x 205
+3x 205
+3x 205
+
+8/30
+10x 125
+3x 175
+1x 205
+1x 225
+3x 205
+3x 205
+3x 205
+
+8/27
+10x 125
+3x 175
+1x 205
+1x 225 (hmm)
+4x 205 flat
+4x 205
+4x 205
+
+8/24
+10x 115
+3x 165
+1x 205
+2x 225
+5x 205
+4x 205
+4x 205
+3x 205
+
+8/21
+10x 115
+3x 165
+1x 205
+2x 225
+5x 205
+4x 205
+4x 205
+4x 205
+
+8/20
+10x 115
+
+8/17
+10x 115
+3x 165
+1x 205
+2x 225
+4x 205 (flat)
+4x 205 (flat)
+4x 205 (flat)
+
+8/14
+10x 115
+3x 165
+1x 205
+2x 225
+4x 205 (flat)
+4x 205 (flat)
+4x 205 (flat)
+
+8/11
+10x 115
+3x 165
+1x 205
+2x 225
+4x 205
+4x 205
+
+8/9
+10x 115
+3x 165
+1x 205
+4x 205 (flat back)
+4x 205 (flat)
+4x 205
+10x 165
+
+7/29
+10x 115
+3x 165
+1x 205
+4x 205
+3x 205
+3x 205
+10x 165
+
+7/26
+10x 115
+3x 165
+1x 205
+4x 205
+3x 205
+3x 205
+10x 165
+
+7/23
+10x 115
+3x 165
+1x 205
+4x 205
+3x 205 (flat back)
+3x 205
+10x 165
+
+7/19
+10x 115
+3x 165
+1x 205
+3x 205
+3x 205
+3x 205
+10x 165
+
+7/12
+10x 115
+3x 165
+1x 205
+3x 205
+3x 205
+3x 205
+10x 165
+
+7/9
+10x 115
+3x 165
+1x 205
+3x 205
+3x 205
+3x 205
+10x 165
+
+7/4
+10x 115
+3x 165
+1x 205
+3x 205
+3x 205
+2x 205
+2x 205
+10x 165
+
+6/29
+10x 115
+3x 165
+1x 205
+3x 205
+3x 205
+3x 205
+3x 205
+2x 205
+2x 205
+2x 205
+
+6/24
+10x 115
+3x 165
+3x 205
+3x 205
+10x 165
+
+6/21
+10x 115
+3x 165
+3x 205
+3x 205
+3x 205
+3x 205
+
+6/19
+10x 115
+3x 165
+1x 205
+3x 205
+3x 205
+2x 205
+2x 205
+
+6/14
+10x 115
+3x 165
+1x 205
+1x 225
+1x 220
+2x 215
+2x 210
+
+6/8
+10x 115
+3x 165
+1x 205
+1x 225
+2x 220 (barely)
+2x 215
+2x 210
+
+6/1
+10x 115
+3x 165
+1x 205
+1x 225
+1x 220
+2x 215
+2x 210
+
+5/28
+10x 115
+3x 165
+3x 205
+3x 205
+3x 205
+3x 205
+
+5/25
+10x 115
+3x 165
+3x 205
+3x 205
+3x 205
+3x 205
+
+5/20
+10x 115
+3x 165
+1x 205
+2x 225
+3x 220
+
+5/17
+10x 115
+3x 165
+1x 205
+2x 225
+2x 220
+3x 215
+3x 210
+4x 205
+
+5/14
+10x 115
+3x 165
+1x 205
+2x 225
+3x 220
+3x 215
+3x 210
+
+5/11
+10x 115
+3x 165
+4x 205
+4x 205
+4x 205
+4x 205
+4x 205
+
+5/6
+10x 115
+3x 165
+1x 205
+3x 225
+3x 220
+4x 215
+4x 210
+
+5/3
+10x 115
+3x 165
+1x 205
+3x 225
+3x 220
+4x 215
+4x 210
+
+4/30
+10x 115
+3x 165
+1x 205
+3x 225
+3x 220 (failed bad on 4th)
+3x 215 (so tired)
+4x 210
+
+4/27
+10x 115
+3x 165
+1x 205
+2x 225
+3x 220
+4x 215
+4x 210
+5x 205
+
+4/21
+10x 115
+3x 165
+1x 205
+3x 225
+3x 220
+4x 215
+4x 210
+
+4/15
+10x 115
+3x 165
+5x 205
+5x 205
+5x 205
+4x 205
+4x 205
+
+4/9
+10x 115
+3x 165
+5x 205
+5x 205
+5x 205
+5x 205
+4x 205
+
+4/7
+10x 115
+3x 165
+1x 205
+2x 225 (failed badly on third)
+2x 220 (so drained)
+2x 215 (still drained)
+
+4/3
+10x 115
+3x 165
+1x 205
+2x 225
+3x 220
+4x 215
+4x 210
+
+3/26
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+3/23
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+?x 220
+
+3/18
+10x 115
+3x 165
+1x 205
+3x 225
+3x 220
+4x 215
+4x 210
+
+3/14
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+5x 210
+
+3/10
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+
+3/7
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+?x 210
+
+3/2
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+5x 210
+
+2/27
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+2/23
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+?x 210
+
+2/20
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+2/16
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+2/12
+10x 115
+3x 165
+1x 205
+3x 225
+3x 220
+4x 215
+4x 210
+
+2/9
+10x 115
+3x 165
+10x 185
+
+2/7
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+2/4
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+5x 210
+
+1/31
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+1/29
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+1/26
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+1/23
+10x 115
+3x 165
+5x 205
+5x 205
+5x 205
+5x 205
+
+1/19
+10x 115
+3x 165
+1x 205
+1x 225
+1x 245
+6x 205
+9x 185
+10x 175
+
+1/16
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+
+1/12
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+1/9
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+1/6
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+1/03
+10x 115
+3x 165
+1x 205
+3x 225
+3x 220 (failed on 4th)
+4x 215
+4x 215
+
+12/30
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+12/27
+10x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+12/21
+10x 115
+3x 165
+1x 205
+1x 225
+1x 245
+6x 205
+6x 205
+5x 205
+
+12/19
+10x 115
+3x 165
+1x 205
+3x 225
+3x 220
+4x 215
+4x 215
+
+12/16
+10x 115
+3x 165 
+1x 205
+3x 225
+3x 220
+4x 215
+4x 215
+
+12/12
+10x 115
+3x 165
+6x 205
+6x 205
+5x 205
+5x 205
+
+12/9
+10x 115
+3x 165
+1x 205
+2x 225
+3x 220
+3x 215
+3x 210
+4x 205
+
+12/6
+10x 115
+3x 165
+1x 205
+2x 225
+3x 220
+3x 215
+3x 210
+
+12/2
+10x 115
+3x 165
+1x 205
+3x 225
+3x 220
+3x 215
+4x 210
+
+11/25
+10x 115
+3x 164
+1x 205
+3x 225
+3x 220
+3x 215
+3x 210
+
+11/21
+10x 115
+3x 165
+1x 205
+3x 225
+3x 220
+4x 215
+4x 210
+
+11/17
+10x 115
+3x 165
+1x 205
+3x 225
+3x 220
+4x 215
+5x 210
+
+11/11
+10x 115
+3x 165
+1x 205
+3x 225
+3x 220
+4x 215
+4x 210
+4x 205
+
+11/8
+10x 115
+3x 165
+1x 205
+3x 225
+3x 220
+4x 215
+4x 210
+4x 205
+
+11/3
+10x 115
+3x 165
+1x 205
+3x 225
+2x 225 (should’ve tried another)
+4x 215
+
+11/1
+10x 115
+3x 165
+7x 205
+6x 205
+9x 185
+8x 185
+
+10/28
+10x 115
+3x 165
+6x 205
+6x 205
+5x 205
+4x 205
+
+10/25
+10x 115
+3x 165
+6x 205 
+6x 205
+5x 205
+5x 205
+
+10/22
+10x 115
+3x 165
+9x 185
+10x 180
+10x 175
+10x 170
+
+10/20
+10x 115
+3x 165
+9x 185
+10x 180
+10x 175
+10x 170
+
+10/14
+10x 115
+3x 165
+10x 185
+10x 180
+10x 175
+10x 170
+
+10/11
+10x 115
+3x 165
+10x 185
+10x 180
+10x 175
+10x 175
+10x 175
+
+10/9
+10x 115
+3x 165
+10x 185
+10x 180
+10x 175
+10x 175
+10x 175
+
+10/6
+10x 115
+3x 165
+9x 185
+9x 180
+10x 175
+9x 175
+9x 175
+
+10/3
+8x 115
+3x 165
+9x 185 (failed 10th)
+10x 175
+10x 170
+9x 170
+
+10/1
+10x 115
+3x 165
+10x 185
+10x 175
+10x 170
+10x 170
+
+9/29
+8x 115
+3x 165
+1x 205
+3x 220 too much wrist pain
+3x 215 same
+4x 210 same
+4x 205 same
+
+9/??
+8x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 210
+
+9/16
+8x 115
+3x 165
+1x 205
+3x 225
+4x 220
+
+9/14
+8x 115
+3x 165
+1x 205
+3x 225
+4x 220
+4x 215
+4x 220
+ 
+9/10
+8x 115
+3x 165
+1x 205
+3x 225
+4 x 220
+4x 215
+4x 210
+
+9/7
+8x 115
+3x 165
+1x 205
+2x 225
+4x 220
+4x 215
+4x 210
+
+9/2
+6x 115
+3x 165
+1x 205
+3x 225 8:59
+4x 220 9:10
+4z 215 9:22
+4x 210 9:34
+4x 210
+
+8/29
+6x 115
+3x 165
+1x 205
+3x 225
+3x 220
+4x 215
+4x 210
+
+8/25
+6x 116
+3x 166
+1x 206
+3x 226
+4x 221
+4x 216
+4x 211
+
+8/21
+6x 116
+3x 166
+1x 206
+3x 226
+4x 221
+4x 216
+4x 216
+4x 211
+
+08/18
+6x 116
+3x 166
+1x 206
+3x 226 5:12
+4x 221
+4x 216
+4x 211
+
+8/12
+6x 116
+3x 166
+2x 206
+4x 226 9:05
+4x 221 9:19
+4x 216 9:30
+4x 211
+
+8/9
+6x 116
+3x 166
+1x 206
+3x 226
+4x 221
+4x 216
+4x 211
+
+8/5
+6x 116
+3x 166
+1x 206
+3x 226 8:40
+4x 221 8:52
+4x 216 9:04
+4x 211 9:17
+
+07/31
+6x 116
+3x 166
+1x 206
+4x 226 barely 9:14 
+4x 221 9:26
+4x 216 9:38 
+5x 211
+
+07/27
+6x 116
+3x 166
+1x 206
+4x 216 9:09
+4x 216 9:20
+4x 216 9:31
+3x 216
+
+7/23
+6x 116
+3x 166
+1x 206
+3x 226 9:07
+3x 226 9:18
+4x 216 9:30
+4x 211 
+
+7/19
+6x 116
+3x 166
+5x 206 8:26
+5x 206 8:36
+5x 206 8:46
+4x 206 8:55
+
+07/16
+6x 116
+3x 166
+1x 206 9:02
+3x 226 (really tough) 9:13
+2x 226 9:25
+4x 216 9:39
+3x 211 9:54
+
+07/09
+6x 116
+3x 166
+1x 206
+4x 226 9:42
+3x 226 9:55
+4x 216 10:07
+4x 216 10:18
+
+7/7
+6x 116
+3x 166
+1x 206 9:03
+3x 226 9:16 (tough)
+3x 226 9:26
+4x 216 9:38
+4x 216 9:50
+
+7/2
+6x 116
+3x 166
+1x 206
+4x 226 9:22
+3x 226 9:33
+4x 216 9:44
+5x 211 9:54
+
+06/29
+6x 116
+3x 166
+1x 206 9:06
+3x 226 9:23
+3x 226 9:35
+4x 216 9:47
+3x 216 9:58
+
+06/24
+6x 116
+3x 168
+1x 206 9:28
+1x 226 9:34
+1x 256 9:48
+1x 246 10:00
+2x 236 10:12
+3x 226 10:25
+
+06/21
+6x 116
+3x 166
+1x 206
+4x 226 9:51
+?x 226
+
+06/18
+6x 116
+3x 166
+1x 206
+5x 221 10:12
+5x 221 10:24 (barely)
+4x 221 10:36
+4x 221 10:48
+
+06/15
+6x 116
+3x 166
+1x 206
+4x 226 5:03
+4x 226 5:15
+3x 226 5:27
+3x 226 5:39
+
+06/11
+6x 116
+3x 166
+7x 206 10:11
+7x 206 10:22
+7z 206 10:33
+6x 206 10:44
+
+06/08
+6x 116
+3x 166
+1x 206 9:38
+1x 226 9:48
+1x 255 10:00
+4x 226 10:13
+4z 221 10:23
+4x 216 10:46
+
+06/05
+6x 116
+3x 166
+1x 206 9:25
+5x 221 9:35
+5x 221 9:46
+4x 221 10:00
+4x 221 10:11
+
+06/02
+6x 116
+3x 166
+8x 206 9:06
+7x 206 9:18
+6x 206 9:30
+6x 206 9:44
+
+05/31
+6x 116
+3x 166
+1x 206 9:15
+5x 221 9:32
+4x 221 9:45
+4x 221 9:57
+3x 221
+
+05/25
+6x 116
+3x 166
+1x 206 9:45
+5x 221 9:57
+5x 221 10:08
+4x 221 10:20
+4x 221 10:32
+
+05/22
+6x 116
+3x 166
+1x 206 8:58
+4x 226 9:10
+4x 226 9:21
+3x 226 9:33 (failed on 4th)
+3x 226 9:52
+
+05/19
+6x 116
+3x 166
+1x 206 7:47
+4x 226 7:59
+3x 226 8:10
+3x 226 8:21
+3x 226 8:32
+
+05/16
+6x 116
+3x 166
+1x 206 9:32
+4x 226 9:44
+4x 226 9:55
+3x 226 10:09
+3x 226 10:22
+
+05/12
+6x 116
+3x 166
+1x 206 9:20
+4x 226 9:32
+4x 226 9:46
+4x 226 9:57
+3x 226 10:07
+
+05/08
+6x 116
+3x 166
+1x 206 9:58
+1 x 226 10:08
+1x 255 (not too bad) 10:20
+4x 226 10:30
+4x 226 10:45
+3x 226 10:58
+
+05/05
+6x 116
+3x 166
+1x 205 10:03
+3x 230 10:13
+3x 230 10:24 
+3x 230 10:34
+4x 221 10:44
+
+05/02
+6x 116
+3x 166
+5x 216 (8:35)
+5x 216 (8:46)
+5x 216 (8:59)
+4x 216 (9:11)
+
+04/29
+6x 116
+3x 166
+1x 206 9:20
+3x 230 9:32
+3x 230 9:42
+3x 230 9:53
+4x 221 10:04
+
+04/25
+6x 116
+3x 166
+1x 206 9:36
+3x 230 (slow) 9:47
+3x 230 (slow) 10:01
+3x 230 (barely) 10:12
+4x 221 (barely) 10:25
+
+04/21
+6x 116
+3x 166
+1x 206 8:22
+3x 230 (slow) 8:32
+3x 230 8:44
+3x 230 (barely) 8:55
+4x 221
+
+04/18
+6x 116
+3x 166
+1x 206 8:40
+4x 221 (slow) 8:50
+4x 221 (better) 9:02
+4x 221 (almost failed) 9:14
+3x 221 9:26
+
+04/15
+6x 116
+3x 166
+1x 206 9:34
+3x 228 (slow) 9:50
+3x 228 (same) 9:59
+3x 228 (same) 10:15
+3x 221
+
+04/12
+6x 116
+3x 166
+1x 206 (8:29)
+1x 226 8:38
+1x 253 (tough) 8:52
+3x 226 (tough) 9:05
+3x 226 (barely) 9:16
+3x 226 (barely) 9:27
+
+04/09
+6x 116
+3x 166
+1x 206 8:51
+3x 228 (slow but good) 9:09
+3x 228 (slow but good) 9:20. 
+3x 228 (slow but good) 9:31
+4x 221 9:43
+
+04/06
+6x 116
+3x 166
+1x 206 8:27
+3x 228 (flat back) 8:36
+3x 228 (not bad) 8:47
+3x 228 (tough) 8:57
+4x 221 9:08
+
+04/03
+6x 116
+3x 166
+1x 206 (8:38)
+3x 228 (8:48)
+3x 228 (8:59)
+3x 228 (9:09)
+3x 221 (flat back)
+
+03/31
+6x 116
+3x 166
+1x 206 9:05
+3x 228 (slow) 9:11
+3x 228 (pretty tough) 9:21
+3x 228 (barely) 9:32
+3x 221 9:40
+
+03/28
+6x 116
+3x 166
+1x 206
+1x 226 9:37
+1x 251 8:48
+3x 226 8:59 
+3x 226 9:12
+3x 226 9:23
+
+03/24
+6x 116
+3x 166
+1x 206 9:42
+3x 230 (tough) 9:57
+3x 230 (same) 10:11
+3x 230 (barely) 10:21
+
+03/21
+6x 116
+3x 166
+1x 206 9:19
+1x 226 9:25
+1x 251 (tough, very slow) 9:37
+3x 226 (ok) 9:47
+3x 226 (tough) 9:59
+3x 226 (brutally tough) 10:11
+
+03/18
+6x 116
+3x 166
+2x 206 8:42
+1x 226 8:46
+1x 248 (easy) 9:06
+3x 226 (tough) 9:19
+3x 226 (not bad) 9:31
+3x 226 (tough) 9:41
+
+03/15
+6x 116
+3x 166
+2x 206 9:17
+3x 228 (slow) 9:26
+3x 228 (tough) 9:39 
+3x 228 (tough) 9:52
+4x 221 (battle)
+
+03/13
+6x 116
+3x 166
+2x 206 8:48
+3x 228 (slow but ok) 9:01
+3x 228 (tough) 9:17
+3x 228 (brutal) 9:46
+3x 221 (not bad) 9:59
+
+03/09
+6x 116
+3x 166
+2x 206 (both paused) 7:34
+3x 228 (kinda tough) 7:45
+3x 228 (same) 7:57
+3x 228 (same) 8:10
+
+03/06
+6x 116
+3x 166
+2x 206 8:37
+3x 228 (slow but not bad) 8:49
+3x 228 (tough) 9:01
+3x 228 (struggle) 9:12
+
+03/03
+6x 116
+3x 166
+1x 226 7:34 
+0x 248 fail 7:45
+2x 226 (bad) 7:59
+2x 226 (bad) 8:13
+
+03/01
+6x 116
+4x 146
+1x 176
+1x 206 (8:34)
+3x 230 (tough) 8:44
+2x 230 (bad) 8:56
+3x 226 (not bad) 9:07
+
+02/26
+6x 116
+4x 146
+1x 176
+1x 206 8:22
+3x 230 (tough) 8:34
+3x 230 (brutal) 8:47
+2x 230
+
+02/23
+6x 116
+4x 146
+1x 176
+1x 206 8:19
+3x 230 (ok) 8:36
+3x 230 (rough) 8:48
+3x 230 (tough) 9:00
+
+02/21
+6x 116
+4x 146
+1x 176
+1x 206 (paused) 8:31
+4x 228 (tough) 8:38
+3x 228 (tough) 8:49
+3x 228 (same) 9:02
+2x 228 (easy) 9:11
+
+02/19
+6x 116
+4x 146
+1x 176
+1x 206 (paused) 8:47
+3x 228 (not bad) 8:56
+3x 228 (not bad) 9:04
+3x 228 
+
+02/18
+6x 116
+4x 146
+1x 176
+1x 206 8:24
+3x 228 (pretty tough) 8:51
+3x 228 (same) 9:04
+3x 228 (same) 9:16
+2x 228 (prob could’ve hit 3) 9:27
+
+02/16
+6x 116
+4x 146
+1x 176
+1x 226 8:43
+1x 251 (brutal) 8:54 
+2x 226 (bad) 9:08
+3x 226 (somehow) 9:25
+2x 226 (feel so weak) 
+
+02/14
+6x 116
+4x 146
+1x 176
+1x 206 9:14
+4x 226 9:24
+3x 226 9:37 
+3x 226 9:50
+3x 226 10:01
+
+02/12
+6x 116
+4x 146
+1x 176 8:14
+1x 226 (easy) 8:19
+1x 251 (struggle) 8:29
+3x 226 (pretty tough) 8:39
+3x 226 (barely) 8:49
+2x 226 9:00
+2x 226 
+
+02/09 (2 hrs after surfing)
+6x 116
+4x 146
+1x 176
+1x 226 8:29
+0x 251 (fought and lost) 8:40
+3x 226 (pretty tough) 8:50
+2x 226 (barely made 2) 9:01
+3x 226 (battled)
+
+02/07
+6x 116
+4x 146
+1x 176
+4x 226 (struggle) 10:43
+3x 226 (not too bad) 10:55
+3x 226
+
+02/05
+6x 116
+4 x 146
+1x 176
+1x 226
+1x 253 (crazy battle)
+3x 226 (not too bad) 9:46
+3x 226 (pretty tough) 9:55
+3x 226 (same)
+
+02/03
+6x 116
+4x 146
+1x 176
+1x 206
+3x 226 (pretty poor form) 8:11
+3x 226 (barely) 8:23
+3x 226 (batter than previous set?) 8:34
+
+02/01
+8x 116
+5x 136
+2x 166
+1x 196
+3x 226 (pretty hard) 9:12
+3x 226 (same) 9:24
+2x 226 (poor form)
+
+01/31
+8x 116
+5x 136
+2x 166
+1x 196
+4x 226 (struggle)
+3x 226 (pretty easy)
+3x 226 (pretty hard)
+
+01/28
+6x 136
+2x 166
+1x 196
+1x 226
+1x 251 (bounced; not too hard)
+3x 226
+3x 226
+
+01/26
+6x 136
+2x 166
+1x 196
+1x 226
+1x 251 (new PR, tiny bounce)
+3x 226 (easy)
+7x 206
+8x 196
+8x 186
+10x 176
+
+01/23
+6x 136
+2x 166
+1x 196
+1x 226
+1x 246
+3x 226
+7x 206 (after short rest)
+9x 196 (after short rest)
+10x 186
+10x 176
+
+01/20
+5x 136
+2x 166
+1x 196
+1x 226
+0x 251 (failed)
+3x 226
+7x 206
+?x 206
+
+01/19
+8x 136
+2x 166
+1x 196
+3x 226 (no doubt)
+6x 206
+8x 196
+9x 186
+10x 176
+
+01/17
+8x 136
+2x 166
+1x 196
+1x 226 
+1x 246 (tiny bounce, easier than last time)
+3x 226 (zero bounce on first 2)
+6x 206
+8x 196
+10x 186
+
+01/15
+8x 136
+2x 166
+2x 196
+3x 226
+6x 206
+8x 196
+10x 186
+
+01/14
+10x 166
+9x 196
+7x 206
+7x 196
+9x 186
+
+01/13
+8x 136
+2x 166
+2x 186
+1x 206
+1x 226 (pretty easy)
+1x 246 (a struggle)
+2x 226
+6x 206 (easy)
+10x 186
+
+01/11
+10x 136
+2x 166
+2x 186
+1x 206
+2x 226 (pretty easy)
+1x 241 (small bounce, but felt easy)
+6x 206 (pretty easy)
+8x 196
+10x 186
+10x 176
+
+01/09
+10x 136
+8x 156
+6x 176
+8x 196 (tough)
+10x 186 (barely)
+
+01/08
+10x 136
+10x 156
+10x 176
+8x 196
+3x 216
+9x 186
+10x 166
+
+01/07
+6x 136
+3x 166
+2x 186
+2x 206
+1x 226 (2 would have been tough)
+1x 241 (slight bounce; barely got it)
+5x 206 (medium)
+8x 186 (to failure)
+10x 176 (easy)
+10x 166 (feet up, easy)
+
+01/05
+6x 166
+6x 186
+5x 206
+4x 206
+8x 186
+
+01/04
+6x 166
+2x 186
+2x 206
+2x 226
+1x 236 (pretty easy)
+5x 206 (pretty easy)
+10x 186 (barely)
+
+01/02
+8x 166
+8x 186
+5x 206
+2x 216
+9x 186
+10x 176
+
+01/01
+8x 136
+8x 166
+6x 186
+4x 206
+8x 186
+10x 176
+(Felt so weak)
+
+12/25
+10x 136
+8x 166
+6x 186
+3x 206
+2x 226
+1x 236
+5x 206
+9x 186
+
+12/21
+10x 176
+10x 186
+7x 196
+5x 206
+8x 186
+
+12/19
+5x 186
+3x 206
+2x 226
+1 x 236
+10x 186 
+
+12/18
+10 x 176
+10x 186
+7x 196
+5 x 206
+8x 186
+
+12/16
+10x 176
+10x 186
+7x 196
+5x 206
+10x 176
+
+12/14
+10x 176
+10x 186
+6x 196
+4x 206
+
+12/13
+10x 176
+9x 186
+6x 196
+
+12/12
+8x 166
+6x 186
+4.8x 206
+5x 196
+7x 186
+10x 176 (barely)
+
+12/10
+6x 136
+5x 166
+3x 186
+1x 206
+1x 216
+1x 231
+4x 206
+8x 186
+10x 176
+9x 176
+
+12/7
+6x 136
+5x 166
+3x 186
+1x 206
+1x 216
+0x 236 (failed)
+4x 206
+8x 186
+10x 176
+
+12/4
+6x 136
+5x 166
+4x 186
+2x 205
+1x 226
+1x 231
+2x 216
+3x 206
+8x 186
+10x 176
+
+12/1
+8x 136
+7x 166
+8x 186
+3x 206
+1x 216
+2x 206
+8x 186
+
+11/?
+8x 136
+7x 166
+5x 186
+3x 206
+1x 216
+1x 226
+0x 231 (failed)
+2x 206
+6x 186
+10x 171
+?x 136
+- [ ]

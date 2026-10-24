@@ -5,12 +5,13 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianG
 import { allWorkouts, saveWorkout, importWorkouts, exportData } from './db';
 import { parseJournal, parseSet, volume, estimatedMax, type Workout } from './domain';
 import './style.css';
+import { loadBundledJournal } from './seed';
 const today = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; };
 const exercises = ['Barbell bench press', 'Dumbbell bench press', 'Dumbbell overhead press', 'Machine chest press', 'Leg press', 'Eagle row', 'Decline barbell bench press'];
 function App() {
  const [workouts,setWorkouts] = useState<Workout[]>([]), [tab,setTab] = useState('journal'), [error,setError] = useState(''), [notice,setNotice] = useState(''), [search,setSearch] = useState(''), [exercise,setExercise] = useState(exercises[0]), [entry,setEntry] = useState(''), [date,setDate] = useState(today()), [location,setLocation] = useState('home'), [journal,setJournal] = useState(''), [year,setYear] = useState(2026), [online,setOnline] = useState(navigator.onLine), [editing,setEditing] = useState<string | null>(null);
  const reload = async () => setWorkouts((await allWorkouts()).sort((a,b)=>(b.date || b.dateLabel).localeCompare(a.date || a.dateLabel)));
- useEffect(()=> { reload().catch(e=>setError(String(e))); const update=()=>setOnline(navigator.onLine); window.addEventListener('online',update); window.addEventListener('offline',update); return ()=> { window.removeEventListener('online',update); window.removeEventListener('offline',update); }; },[]);
+ useEffect(()=> { (async()=>{ const added=await loadBundledJournal(); await reload(); if(added) setNotice(`Loaded ${added} sessions from your original journal. Saved on this device.`); })().catch(e=>setError(String(e))); const update=()=>setOnline(navigator.onLine); window.addEventListener('online',update); window.addEventListener('offline',update); return ()=> { window.removeEventListener('online',update); window.removeEventListener('offline',update); }; },[]);
  async function run(fn:()=>Promise<void>) { setError(''); setNotice(''); try { await fn(); } catch(e) { setError(String(e)); } }
  const active = workouts.find(w=>w.id === editing) || workouts.find(w=>w.date===date && !w.id.startsWith('import-'));
  const filtered = workouts.filter(w=>`${w.dateLabel} ${w.location} ${w.notes} ${w.sets.map(s=>s.exercise+' '+s.notes).join(' ')}`.toLowerCase().includes(search.toLowerCase()));

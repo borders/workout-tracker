@@ -36,7 +36,9 @@ The browser smoke test uses its own temporary browser profile and synthetic fixt
 
 ## Important limits
 
-The pasted personal journal has not yet been loaded into this app. Do not substitute synthetic fixtures for it or claim that its import was verified. The full journal is available in the project conversation, not in a file in this checkout.
+Personal journal source files can be bundled in `src/seed/*.txt` with the owner’s approval. On startup, the app imports each source exactly once per browser database. Existing sessions and edited sets are preserved; the complete original source is included in JSON backups. No personal source is published without approval. The prepared journal is also retained in ignored `private-data/journal.txt` on the cloud machine.
+
+With the personal journal available, `node scripts/journal-smoke.cjs` validates all 401 sessions and 2,854 sets, the April 22 PR, unknown dates, and preservation of edits after reload. General browser checks use temporary profiles and never change your computer’s browser database.
 
 The importer deliberately does not infer equipment from hotel names or load magnitudes. Ambiguous sessions require classification review. Notes preserve technique but the initial chart does not filter technique variations. Dumbbell weights retain their recorded value; total two-dumbbell tonnage is not inferred. Unknown reps contribute zero to recorded volume; this is incomplete rather than an estimate. The original source is retained separately when imported, so manual edits do not overwrite it.
 
