@@ -47,6 +47,9 @@ set -euo pipefail
 release="$HOME/.fieldwork/releases/$1"
 root="$HOME/borderseng.com"
 test -f "$release/index.html"
+if [ -f "$HOME/.fieldwork/sync-config.json" ]; then
+  php "$release/api/setup.php" --check
+fi
 test -s "$HOME/.fieldwork/htpasswd"
 # Fail closed over HTTP: no Basic auth challenge or personal data on plaintext HTTP.
 cat > "$release/.htaccess" <<HTACCESS
@@ -73,4 +76,4 @@ printf 'Open https://borderseng.com/workouts/ (website username: fieldwork).\n'
 printf 'HTTP is denied; use HTTPS. Prior releases are retained for rollback.\n'
 REMOTE
 echo 'Upload complete. Verify HTTPS login and the existing homepage in your browser.'
-echo 'This does not synchronize local data from other browsers; export those records first.'
+echo 'Enable server sync in each browser after configuring MySQL with npm run setup:sync. Export a backup before first sync.'

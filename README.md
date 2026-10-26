@@ -1,6 +1,6 @@
 # Fieldwork
 
-A personal workout journal. React + TypeScript, IndexedDB, and a production service worker. The current milestone runs entirely on the device; it does not send workout data to a server.
+A personal workout journal. React + TypeScript, IndexedDB, and a production service worker. Workouts save on the device first. Optional PHP/MySQL synchronization shares records between browsers after database setup; see [SYNC.md](SYNC.md).
 
 ## Develop
 
@@ -46,15 +46,15 @@ With the personal journal available, `node scripts/journal-smoke.cjs` validates 
 
 The importer deliberately does not infer equipment from hotel names or load magnitudes. Ambiguous sessions require classification review. Notes preserve technique but the initial chart does not filter technique variations. Dumbbell weights retain their recorded value; total two-dumbbell tonnage is not inferred. Unknown reps contribute zero to recorded volume; this is incomplete rather than an estimate. The original source is retained separately when imported, so manual edits do not overwrite it.
 
-Production offline reload and offline set entry passed Chromium browser validation. Installation on a physical iPhone, JSON restore, and cross-device synchronization still need validation/implementation. Export backups before clearing browser data. There is no login or server backup yet. Do not deploy this as a shared authenticated service until the backend is implemented.
+Production offline reload and offline set entry passed Chromium browser validation. JSON restore is not implemented. Server sync is implemented and requires DreamHost database configuration and live-device validation; see [SYNC.md](SYNC.md). Export backups before clearing browser data. The hosted app uses its existing password protection. MySQL stores shared copies after sync is activated; arrange independent database backups. It remains a single-user app.
 
-## Next backend milestone
+## Backend
 
-DreamHost-compatible PHP 8 and MySQL, with a single user and password-hashed login, secure HttpOnly SameSite sessions, CSRF protection, UUID records, revisions, tombstones, and an operation outbox. Sync uses compare-and-swap revisions and records conflicts for explicit resolution, retaining both versions. Never use silent last-write-wins. Store server secrets outside the public document root. Static frontend builds deploy to the web root; a PHP API runs alongside them. No database credentials are needed for local frontend development.
+DreamHost-compatible PHP 8.1+ and MySQL are implemented with the existing Basic login, HttpOnly/Secure/SameSite CSRF sessions, UUID operations, revision checks, and tombstones. Durable local state queues writes. Conflicts preserve both versions and require review. Credentials stay outside the document root; the PHP API deploys alongside the frontend under `/workouts/api/`. See [SYNC.md](SYNC.md) for setup and limitations.
 
 ## Privacy
 
-Personal imports and exports should stay outside Git (use ignored `private-data/`). No telemetry or hosted data service is configured. Fonts use the system font stack; no remote font requests are made.
+Personal imports and exports should stay outside Git (use ignored `private-data/`). No telemetry is configured. Server synchronization sends workout and original-import documents only to the same-origin API when you enable it. Fonts use the system font stack; no remote font requests are made.
 
 ## Updating your local ZIP checkout
 

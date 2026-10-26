@@ -1,8 +1,8 @@
 # DreamHost deployment
 
-Target: `https://borderseng.com/workouts/`. HTTPS is required for offline/PWA support and the private journal login. This is the static frontend deployment; MySQL synchronization is not implemented. Browser data from localhost is a different origin and is not automatically transferred. Export local changes first; the bundled historical journal loads independently on each browser.
+Target: `https://borderseng.com/workouts/`. HTTPS is required for offline/PWA support and the private journal login. The release includes the frontend and PHP sync API. Activate MySQL using [SYNC.md](SYNC.md). Browser data from localhost is a different origin and is not automatically transferred. Export local changes first; the bundled historical journal loads independently on each browser.
 
-The direct cloud deployment attempt was blocked by SSH DNS/network access. No remote files have been changed. A network draft allowing `borderseng.com` has been saved, but that does not enable runtime SSH or authenticate the connection.
+HTTPS access from the cloud now reaches the protected application. SSH still fails (hostname DNS failure and direct-IP port 22 refusal), so deployments run from your computer. No deployment or remote configuration change has been made by the cloud agent.
 
 ## Deploy from your computer
 
@@ -33,3 +33,7 @@ Basic authentication controls server access; it does not encrypt browser Indexed
 ## Rollback
 
 The deploy command reports the previous release’s absolute path. To roll back, connect via SSH, create a temporary symlink to that exact retained release, and atomically replace only `~/borderseng.com/workouts` with it. Never delete or change the main document root. Inspect the existing link and release paths before doing this.
+
+## Database setup
+
+Before enabling server synchronization, follow [SYNC.md](SYNC.md). Run `npm run setup:sync` once to enter database credentials securely over SSH, then deploy normally. Existing deployments without database configuration continue to save locally and display an actionable error if sync is enabled. No database credentials belong in this document or the public web tree.
