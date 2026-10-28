@@ -34,6 +34,9 @@ from pathlib import Path
 Path(sys.argv[2]).write_text('fieldwork:synthetic-test-marker\\n')
 ''')
     htpasswd.chmod(0o755)
+    php = tools / 'php'
+    php.write_text('#!/bin/sh\nexit 0\n')
+    php.chmod(0o755)
     environ = dict(os.environ, MOCK_REMOTE_HOME=str(remote), PATH=str(tools)+os.pathsep+os.environ['PATH'])
     script = ['bash', str(root / 'scripts/deploy-dreamhost.sh')]
     def run(): return subprocess.run(script, cwd=root, env=environ, capture_output=True, text=True)
@@ -53,8 +56,8 @@ Path(sys.argv[2]).write_text('fieldwork:synthetic-test-marker\\n')
     first = target.resolve()
     assert (first / 'index.html').is_file()
     protection = (first / '.htaccess').read_text()
-    assert 'SSLRequireSSL' in protection and 'Require valid-user' in protection
-    assert str(remote / '.fieldwork/htpasswd') in protection
+    assert 'SSLRequireSSL' in protection and 'RewriteRule ^ gate.php [END]' in protection
+    assert 'AuthType None' in protection and 'DirectoryIndex gate.php' in protection
     result = run()
     assert result.returncode == 0, result.stderr
     assert target.resolve() != first

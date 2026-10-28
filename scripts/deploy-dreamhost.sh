@@ -51,15 +51,19 @@ if [ -f "$HOME/.fieldwork/sync-config.json" ]; then
   php "$release/api/setup.php" --check
 fi
 test -s "$HOME/.fieldwork/htpasswd"
+php -l "$release/gate.php"
+mkdir -p "$HOME/.fieldwork/sessions"
+chmod 700 "$HOME/.fieldwork/sessions"
 # Fail closed over HTTP: no Basic auth challenge or personal data on plaintext HTTP.
 cat > "$release/.htaccess" <<HTACCESS
 Options -Indexes
-DirectoryIndex index.html
+DirectoryIndex gate.php
 SSLRequireSSL
-AuthType Basic
-AuthName "Private workout journal"
-AuthUserFile "$HOME/.fieldwork/htpasswd"
-Require valid-user
+AuthType None
+Require all granted
+RewriteEngine On
+RewriteRule ^gate\.php$ - [END]
+RewriteRule ^ gate.php [END]
 <Files "sw.js">
   Header set Cache-Control "no-cache"
 </Files>

@@ -8,7 +8,7 @@ function respond(int $status,array $body): never {http_response_code($status);ec
 $testing=PHP_SAPI==='cli-server'&&getenv('FIELDWORK_TESTING')==='1';
 if(!$testing){
     if(($_SERVER['HTTPS']??'')!=='on'&&($_SERVER['HTTPS']??'')!=='1')respond(403,['error'=>'HTTPS is required.']);
-    if(($_SERVER['REMOTE_USER']??$_SERVER['REDIRECT_REMOTE_USER']??'')!=='fieldwork')respond(401,['error'=>'Sign in with the website username fieldwork.']);
+    if(!(defined('FIELDWORK_AUTHENTICATED')&&FIELDWORK_AUTHENTICATED===true)&&($_SERVER['REMOTE_USER']??$_SERVER['REDIRECT_REMOTE_USER']??'')!=='fieldwork')respond(401,['error'=>'Sign in with the website username fieldwork.']);
 }
 try {
     $action=$_GET['action']??'handshake';$method=$_SERVER['REQUEST_METHOD'];

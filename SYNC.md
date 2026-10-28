@@ -1,6 +1,6 @@
 # Server synchronization
 
-The app continues to save locally first. The PHP API stores revisioned workout and original-journal documents in MySQL. It reuses the website’s existing `fieldwork` Basic authentication; there is no second application password or public write endpoint.
+The app continues to save locally first. The PHP API stores revisioned workout and original-journal documents in MySQL. It reuses the website’s existing `fieldwork` password through the PHP sign-in page; there is no second application password or public write endpoint.
 
 ## Activate on DreamHost
 
@@ -20,7 +20,7 @@ The app continues to save locally first. The PHP API stores revisioned workout a
 
 The setup script creates only `fw_meta`, `fw_records`, and `fw_operations` in the selected database. It does not change the rest of your site or unrelated tables. Existing configuration is verified and reused; it is not overwritten. Deployment checks the database before switching releases if configuration exists. If a setup command fails, paste its error without credentials; do not remove authentication or disable TLS checks.
 
-The browser enables background polling every 30 seconds while the page is running, plus sync on saves, connectivity restoration, and returning to the foreground. An iPhone can suspend the page; it resumes synchronization when reopened. **Paused sync** leaves changes local until enabled again. Basic authentication must still be available when syncing.
+The browser enables background polling every 30 seconds while the page is running, plus sync on saves, connectivity restoration, and returning to the foreground. An iPhone can suspend the page; it resumes synchronization when reopened. **Paused sync** leaves changes local until enabled again. Your website login session must still be valid when syncing.
 
 ## Initial data and conflicts
 
@@ -40,7 +40,7 @@ The current app has no whole-workout deletion UI. Server tombstones are supporte
 
 ## API and security
 
-API path: `/workouts/api/sync.php`. Apache’s parent `.htaccess` protects the HTML, scripts, and API. PHP additionally requires HTTPS and the authenticated Apache `REMOTE_USER` to be `fieldwork`. It does not trust a client-supplied username header. Mutation requests require a same-origin Origin header and a per-session CSRF token; cookies are HttpOnly, Secure, and SameSite Strict. API responses are never cached. No CORS access is granted.
+API path: `/workouts/api/sync.php`. Apache routes HTML, scripts, and API requests through the PHP session gate. PHP requires HTTPS and a valid server-side login session. The sync endpoint accepts a trusted in-process authentication marker set only by that gate (and retains compatibility with Apache REMOTE_USER on older Basic-auth deployments). It does not trust client-supplied username headers. Mutation requests require a same-origin Origin header and a per-session CSRF token; cookies are HttpOnly, Secure, and SameSite Strict. API responses are never cached. No CORS access is granted.
 
 Writes use compare-and-swap revisions and durable operation IDs. A single InnoDB transaction serializes revision allocation, the document update, and the operation receipt. Batches validate up front; if a later operation fails after earlier ones commit, retrying is safe. Pulls paginate the latest records by a global monotonic revision, including tombstones. A different server database identity pauses sync instead of treating a reset database as authoritative.
 
