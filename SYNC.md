@@ -59,3 +59,7 @@ Browser logging/offline regression tests remain in `scripts/smoke.cjs` and `scri
 For local PHP HTTP tests only, `FIELDWORK_TESTING=1` bypasses HTTPS/Apache authentication **only** under PHP’s `cli-server` SAPI. CSRF and Origin validation remain enabled. Never run a public test server or set that flag in production. Configure the local test server with `FIELDWORK_CONFIG` pointing to an owner-only JSON configuration file outside the checkout/webroot. This switch is not usable through an HTTP request and does not bypass authentication under production PHP-FPM/CGI.
 
 Current evidence: 19 passing unit tests; local PHP 8.4 + MariaDB 11 API checks (CSRF/origin rejection, retry idempotency, conflicts/resolution, 500-record pagination, and tombstones); and two independent browser profiles reconciling all 401 journal sessions, transferring new sets, conflicting offline edits, and retaining both versions. Browser regression checks also cover mobile logging and production offline reload/saving. DreamHost activation must still be verified after the user creates the database and runs the two setup/deployment commands; source-code tests do not establish live server readiness.
+
+## Temporary PWA troubleshooting
+
+See [DIAGNOSTICS.md](DIAGNOSTICS.md) for opt-in, header-only, one-hour diagnostics. This does not relax Origin or CSRF checks. Never dump full request headers, cookies, session files, or workout bodies to troubleshoot authentication.

@@ -6,7 +6,7 @@ export function createSync(store:LocalStore, endpoint:string, request:typeof fet
  const listeners=new Set<(r:SyncReport)=>void>();
  function emit(r:SyncReport){report=r;listeners.forEach(fn=>fn(r));}
  async function api(action:string,body?:unknown,csrf?:string){
-   const response=await request(`${endpoint}?action=${action}`,{method:body?'POST':'GET',credentials:'same-origin',cache:'no-store',headers:body?{'Content-Type':'application/json','X-CSRF-Token':csrf!}:{},body:body?JSON.stringify(body):undefined,signal:AbortSignal.timeout(30000)});
+   const response=await request(`${endpoint}?action=${action}`,{method:body?'POST':'GET',credentials:'same-origin',cache:'no-store',headers:{'X-Fieldwork-Display-Mode':typeof window!=='undefined'&&(window.matchMedia('(display-mode: standalone)').matches||(navigator as Navigator&{standalone?:boolean}).standalone===true)?'standalone':'browser',...(body?{'Content-Type':'application/json','X-CSRF-Token':csrf!}:{})},body:body?JSON.stringify(body):undefined,signal:AbortSignal.timeout(30000)});
    let value;try{value=await response.json();}catch{throw new Error('Sync API unavailable. Deploy the PHP backend and configure its database.');}
    if(!response.ok)throw new Error(value.error??`Sync failed (${response.status})`);
    return value;

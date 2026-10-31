@@ -17,7 +17,7 @@ $authenticated=($_SESSION['user']??'')==='fieldwork'&&($_SESSION['expires']??0)>
 $isPage=in_array($relative,['','index.html','gate.php'],true);
 if(!$authenticated){
     header('Cache-Control: no-store, private');header('X-Fieldwork-Login: required');
-    if(!$isPage){session_write_close();http_response_code(401);header('Content-Type: application/json');exit('{"error":"Session expired. Reopen the app to sign in."}');}
+    if(!$isPage){if($relative==='api/sync.php'){require_once __DIR__.'/api/diagnostics.php';syncDiagWrite(401);}session_write_close();http_response_code(401);header('Content-Type: application/json');exit('{"error":"Session expired. Reopen the app to sign in."}');}
     $_SESSION['login_csrf']??=bin2hex(random_bytes(32));$error='';
     if(($_SERVER['REQUEST_METHOD']??'GET')==='POST'){
         $valid=hash_equals($_SESSION['login_csrf'],(string)($_POST['csrf']??''));
