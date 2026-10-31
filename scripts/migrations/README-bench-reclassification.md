@@ -8,7 +8,7 @@ The scan evaluates whole imported sessions. It flags sessions where at least two
 1. Review the PHP script for CLI-only access, JSON preservation, revision-aware writes, validation, backup paths, and repeated-run behavior.
 2. Run `php -l scripts/migrations/reclassify-bench.php`, `npm test`, `npm run build:hosted`, and `python scripts/test-deploy.py`.
 3. Exercise the script with a **disposable local MariaDB database** with synthetic records and confirm scan does not mutate; apply touches only approved set IDs; reruns reject revision mismatch; local sync clients receive the updated records. Do not run tests on production.
-4. Note that multiple records are committed individually; a mid-run failure can leave a **partial migration**. Inspect output and backup; do not replay blindly.
+4. Apply uses one InnoDB transaction for the entire approval list. Verify the failure/interruption tests below; do not replay blindly if commit confirmation is lost.
 
 ## Manual production procedure (only after Codex review)
 1. Confirm all devices are synced, export an app JSON backup and take an independent MySQL database backup. Pause edits while applying.
@@ -24,7 +24,7 @@ The scan evaluates whole imported sessions. It flags sessions where at least two
 6. Verify corrected exercises in both Safari and the installed PWA after synchronization; resolve conflicts manually. Preserve the before-state backup and logs.
 
 ## Limits
-The scan does not have access to the actual production workouts until invoked on the server. There are no preapproved classifications in this PR. The script does not automatically correct low-weight workouts, and does not modify original import text. It relies on the existing `pushOperation` function for transactional revision, audit receipt, and conflict rules.
+The scan does not have access to the actual production workouts until invoked on the server. There are no preapproved classifications in this PR. The script does not automatically correct low-weight workouts, and does not modify original import text. It uses `pushOperationInTransaction` to retain the same revision and audit rules while one caller-owned transaction covers all approved workouts. Normal API sync still uses the original per-operation transaction wrapper.
 
 Do not promise one-command rollback: restoring a database backup while active clients sync can reintroduce conflicts. Rollback requires a planned, revision-aware reverse migration or coordinated full DB restoration with clients offline.
 
@@ -40,4 +40,12 @@ PHP_BINARY=php FIELDWORK_MIGRATION_TEST_CONFIG=/absolute/path/local-test-config.
 
 The configuration uses the backend JSON format, points only to localhost/127.0.0.1 (or a local socket), and must permit creating and dropping test databases. The suite creates a uniquely named database and removes it afterward, and uses owner-only temporary config/output directories. It verifies candidate selection, read-only scanning, exact approved changes, JSON type preservation, original backups, restrictive report permissions even under umask 022, existing-file and symlink rejection, concurrent scan exclusivity, stale-revision rejection, and invalid approvals.
 
-These fixes do not change the documented per-workout commit behavior: a concurrent conflict after earlier commits may still result in a partial multi-workout apply. No production classifications have been approved or executed.
+## Atomic apply and interruptions
+
+All three sync tables must use InnoDB; apply checks this before starting. The migration acquires the same global writer lock as sync, locks and checks every approved workout revision, validates every operation, and persists the private before-state backup before performing any updates. It then updates all approved workouts, allocates their revisions, and records all operation receipts inside one transaction. Success messages are printed only after the single commit.
+
+Errors, stale approvals, and process/connection loss before commit roll back the whole batch, including allocated revisions and operation receipts. A surviving backup after an aborted run is expected and does not mean the batch committed. Use a new backup path for a reviewed retry. Normal sync writes may wait while the transaction is active; pause editing and keep the approval batch focused. Scan remains read-only.
+
+An interruption cannot be prevented. If it occurs during/after commit, the database still commits everything or nothing, but the terminal may not receive confirmation. The backup includes the exact `operationIds`. Inspect those IDs in `fw_operations` and compare current workout revisions before considering another apply; do not assume failure just because the terminal disconnected. Do not restore a whole database while devices are actively syncing.
+
+The disposable-database suite also injects a second-write SQL failure, tests stale second approvals, kills a CLI and its database connection mid-batch, verifies concurrent readers see no uncommitted changes, verifies complete success and repeated-run rejection, and checks that revisions and audit receipts roll back with the workouts. No production classifications have been approved or executed.

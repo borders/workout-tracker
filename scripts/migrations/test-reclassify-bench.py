@@ -1,7 +1,7 @@
 """Local-only migration regression tests; create/drop an isolated database."""
 import json,os,subprocess,tempfile
 from pathlib import Path
-import copy,shutil,uuid
+import copy,shutil,uuid,time
 root=Path(__file__).resolve().parents[2]
 php=os.environ.get('PHP_BINARY') or shutil.which('php')
 assert php, 'Set PHP_BINARY to a PHP 8.1+ executable'
@@ -49,5 +49,46 @@ try:
      print('PASS: repeated apply with stale revision is rejected without additional writes')
      approval.write_text(json.dumps({'changes':[{'workoutId':'import-mixed','revision':3,'setIds':['missing']}]}));r=subprocess.run(script+['apply',str(approval),str(p/'invalid.json')],env=env,text=True,capture_output=True);assert r.returncode!=0;assert snapshot()==after
      print('PASS: unknown set approval is rejected without writes')
+     # Batch includes a valid first update and a stale second approval: no writes.
+     current=next(x for x in after[0] if x['id']=='import-light')['revision']
+     batch={'changes':[{'workoutId':'import-light','revision':int(current),'setIds':['light-b']},{'workoutId':'import-mixed','revision':3,'setIds':['mixed-a']}]}
+     approval.write_text(json.dumps({**batch,'changes':[batch['changes'][0],{**batch['changes'][1],'revision':2}]}))
+     r=subprocess.run(script+['apply',str(approval),str(p/'stale-batch.json')],env=env,capture_output=True);assert r.returncode!=0 and snapshot()==after
+     approval.write_text(json.dumps(batch))
+     # Fail the second operation after earlier writes have run inside the transaction.
+     call("$db->exec(\"CREATE TRIGGER bench_fail BEFORE INSERT ON fw_operations FOR EACH ROW BEGIN IF JSON_UNQUOTE(JSON_EXTRACT(NEW.request_json,'$.id'))='import-mixed' THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='synthetic failure'; END IF; END\");")
+     r=subprocess.run(script+['apply',str(approval),str(p/'fault-batch.json')],env=env,capture_output=True);assert r.returncode!=0 and snapshot()==after
+     call('$db->exec("DROP TRIGGER bench_fail");')
+     print('PASS: stale second approval and second-write SQL failure leave all workouts, revisions, and audit receipts unchanged')
+     # Pause the second audit insert using a test-only SQL trigger, not a production failpoint.
+     marker='bench-stop-'+uuid.uuid4().hex
+     call("$db->exec(\"CREATE TRIGGER bench_pause BEFORE INSERT ON fw_operations FOR EACH ROW BEGIN IF JSON_UNQUOTE(JSON_EXTRACT(NEW.request_json,'$.id'))='import-mixed' THEN DO GET_LOCK('"+marker+"',0); DO SLEEP(20); END IF; END\");")
+     proc=subprocess.Popen(script+['apply',str(approval),str(p/'interrupted.json')],env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+     try:
+      deadline=time.monotonic()+10;owner=None
+      while time.monotonic()<deadline:
+       owner=call("echo json_encode($db->query(\"SELECT IS_USED_LOCK('"+marker+"')\")->fetchColumn());")
+       if owner:break
+       time.sleep(.05)
+      assert owner, 'Migration did not reach the second write'
+      assert snapshot()==after, 'Another reader saw uncommitted migration data'
+      proc.kill();proc.communicate(timeout=5)
+      call('$db->exec("KILL CONNECTION '+str(int(owner))+'");')
+      # Wait for rollback/release of the writer lock, rather than merely reading an old snapshot.
+      call('$db->beginTransaction();$db->query("SELECT revision FROM fw_meta WHERE id=1 FOR UPDATE");$db->rollBack();')
+      assert snapshot()==after
+     finally:
+      if proc.poll() is None:proc.kill();proc.communicate()
+      call('$db->exec("DROP TRIGGER bench_pause");')
+     print('PASS: a killed CLI/database connection rolls the entire batch back; concurrent readers see no partial data')
+     r=subprocess.run(script+['apply',str(approval),str(p/'complete-batch.json')],env=env,text=True,capture_output=True);assert r.returncode==0,r.stderr
+     final=snapshot();assert int(final[1][0]['revision'])==int(after[1][0]['revision'])+2;assert len(final[2])==len(after[2])+2
+     expected_light=copy.deepcopy(expected);expected_light['sets'][1]['exercise']='Dumbbell bench press'
+     expected_mixed=copy.deepcopy(docs[2]);expected_mixed['sets'][0]['exercise']='Dumbbell bench press'
+     assert json.loads(next(x for x in final[0] if x['id']=='import-light')['document'])==expected_light
+     assert json.loads(next(x for x in final[0] if x['id']=='import-mixed')['document'])==expected_mixed
+     backup_data=json.loads((p/'complete-batch.json').read_text());assert len(backup_data['operationIds'])==2
+     r=subprocess.run(script+['apply',str(approval),str(p/'repeat-batch.json')],env=env,capture_output=True);assert r.returncode!=0 and snapshot()==final
+     print('PASS: successful batch commits every approved workout and audit receipt exactly once, with operation IDs retained in the private backup')
 finally:
     admin('DROP DATABASE '+name)

@@ -45,14 +45,22 @@ function recordFromRow(string $kind,string $id,array|false $row): array {
     return ['kind'=>$kind,'id'=>$id,'revision'=>$row?(int)$row['revision']:0,'deleted'=>$row?(bool)$row['deleted']:true,'document'=>$row&&$row['document']!==null?json_decode($row['document'],false,512,JSON_THROW_ON_ERROR):null];
 }
 function pushOperation(PDO $db,array $op): array {
-    $request=json_encode($op,JSON_THROW_ON_ERROR);$hash=hash('sha256',$request);
     $db->beginTransaction();
-    try {
+    try{
+        $result=pushOperationInTransaction($db,$op);
+        $db->commit();return $result;
+    }catch(Throwable $e){if($db->inTransaction())$db->rollBack();throw $e;}
+}
+// The caller owns commit/rollback. The shared meta-row lock maintains the same
+// revision serialization for ordinary sync and atomic maintenance batches.
+function pushOperationInTransaction(PDO $db,array $op): array {
+    if(!$db->inTransaction())throw new LogicException('An active transaction is required.');
+    $request=json_encode($op,JSON_THROW_ON_ERROR);$hash=hash('sha256',$request);
         // Serialize writes so pull cursors cannot skip a later-committing lower revision.
         $meta=$db->query('SELECT revision FROM fw_meta WHERE id=1 FOR UPDATE')->fetch(PDO::FETCH_ASSOC);
         if(!$meta)throw new RuntimeException('Sync schema is not initialized.');
         $q=$db->prepare('SELECT request_hash,response_json FROM fw_operations WHERE id=?');$q->execute([$op['operationId']]);$prior=$q->fetch(PDO::FETCH_ASSOC);
-        if($prior){if(!hash_equals($prior['request_hash'],$hash))throw new InvalidArgumentException('Operation ID was reused with different content.');$db->commit();return (array)json_decode($prior['response_json'],false,512,JSON_THROW_ON_ERROR);}
+        if($prior){if(!hash_equals($prior['request_hash'],$hash))throw new InvalidArgumentException('Operation ID was reused with different content.');return (array)json_decode($prior['response_json'],false,512,JSON_THROW_ON_ERROR);}
         $q=$db->prepare('SELECT revision,deleted,document FROM fw_records WHERE kind=? AND id=?');$q->execute([$op['kind'],$op['id']]);$row=$q->fetch(PDO::FETCH_ASSOC);
         $record=recordFromRow($op['kind'],$op['id'],$row);
         if($record['revision']!==$op['baseRevision'])$result=['conflict'=>true,'record'=>$record];
@@ -65,6 +73,5 @@ function pushOperation(PDO $db,array $op): array {
         }
         // Retain rejected local versions as well as accepted writes for recovery.
         $q=$db->prepare('INSERT INTO fw_operations(id,request_hash,request_json,response_json) VALUES(?,?,?,?)');$q->execute([$op['operationId'],$hash,$request,json_encode($result,JSON_THROW_ON_ERROR)]);
-        $db->commit();return $result;
-    }catch(Throwable $e){if($db->inTransaction())$db->rollBack();throw $e;}
+    return $result;
 }
