@@ -2,7 +2,7 @@
 
 **Codex / operator: DO NOT MERGE OR RUN ON PRODUCTION UNTIL REVIEWED.** This migration is not part of normal deployment. It does not auto-run. Branch was created before the recent PWA sync fix: rebase onto current `main` and resolve conflicts before merging.
 
-The scan finds imported workouts containing barbell-bench sets between 35 and 100 lb. The range is only a **candidate filter**, not proof of dumbbells. Review every full session and original notes; ordinary warmups can overlap. Dumbbell weights retain their recorded per-dumbbell convention.
+The scan evaluates whole imported sessions. It flags sessions where at least two barbell-labelled bench sets are all between 35 and 100 lb, or sessions mixing explicit dumbbell and barbell labels. Isolated 45-lb warm-ups beside heavier barbell sets are not flagged. These are candidates only, never automatic corrections; review all sets and original notes. Dumbbell weights retain their recorded per-dumbbell convention.
 
 ## Review and validation
 1. Review the PHP script for CLI-only access, JSON preservation, revision-aware writes, validation, backup paths, and repeated-run behavior.
