@@ -3,3 +3,29 @@
 .sync-panel{margin:0 0 28px;padding:20px;border:1px solid #dce4d1;background:#f0f4e8;border-radius:8px}.sync-panel .section-head{margin-bottom:10px;align-items:start}.sync-message{font-size:12px;line-height:1.7;color:#526c40;margin:8px 0}.sync-panel .hint{margin:8px 0 0}.sync-buttons{display:flex;gap:8px;flex-wrap:wrap}.sync-buttons button{border:1px solid #bacbad;background:#fff;border-radius:5px;color:#375831;padding:10px 12px;font-size:12px;min-height:40px}.sync-conflict{font-size:12px;padding-top:16px;margin-top:16px;border-top:1px solid #cdd9c1}.sync-conflict summary{font-weight:600;color:#865923}.sync-conflict p{line-height:1.7}.conflict-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px}.conflict-columns pre{max-height:260px;overflow:auto;font-size:11px;overflow-wrap:anywhere;white-space:pre-wrap}.conflict-columns h3{font-size:13px}@media(max-width:600px){.sync-panel .section-head{flex-direction:column}.conflict-columns{grid-template-columns:1fr}}
 
 .expand-workout{margin-top:12px;border:1px solid #cbd8bf;background:#f5f8ee;border-radius:5px;padding:9px 12px;color:#375831;font-size:12px;min-height:40px}.expand-workout:hover{background:#e8f0de}.workout-details{margin-top:14px}.workout-summary,.progress-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:12px}.workout-summary span,.progress-summary>div{background:#f1f4eb;padding:9px;border-radius:5px;font-size:11px;color:#45603d}.progress-summary{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0 24px}.progress-summary small{display:block;font-size:10px;color:#778270}.progress-summary strong{display:block;margin-top:7px;font-size:18px;overflow-wrap:anywhere}.set-table-scroll{overflow-x:auto;max-width:100%;border:1px solid #e0e6da;border-radius:6px}.set-table{border-collapse:collapse;width:100%;font-size:11px;text-align:left}.set-table th,.set-table td{padding:10px 8px;border-bottom:1px solid #e7ebdf;vertical-align:top}.set-table th{background:#f0f3e9;color:#566c4b;white-space:nowrap}.set-table td:last-child{min-width:120px;overflow-wrap:anywhere}.set-table tr:last-child td{border-bottom:0}.set-table td:nth-child(3),.set-table td:nth-child(4){white-space:nowrap}@media(max-width:600px){.progress-summary{grid-template-columns:1fr}.set-table{font-size:10px}.set-table th,.set-table td{padding:8px 6px}}
+
+/* Analysis dashboard */
+.progress-dashboard .section-head{align-items:end;flex-wrap:wrap}
+.progress-exercise{margin:0;min-width:170px;flex:0 1 280px}
+.progress-exercise select{margin-top:5px}
+.progress-ranges{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 20px}
+.progress-ranges button{flex:1;min-width:50px;border:1px solid #cbd8bf;background:#fff;border-radius:5px;padding:12px 8px;color:#375831;font-size:12px;min-height:44px}
+.progress-ranges button[aria-pressed=true]{background:#294c39;color:#fff}
+.progress-configuration{display:flex;gap:18px;justify-content:space-between;align-items:start;flex-wrap:wrap;margin-bottom:25px}
+.progress-configuration fieldset{border:0;padding:0;margin:0;flex:1;min-width:210px}
+.progress-configuration legend{font-size:12px;font-weight:600;margin-bottom:10px}
+.metric-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.metric-picker label{display:flex;align-items:center;gap:8px;margin:0;font-size:12px;line-height:1.4}
+.metric-picker input{width:18px;height:18px;flex:none;margin:0;accent-color:#294c39}
+.threshold-label{font-size:12px;margin:0;max-width:180px}
+.threshold-label input{margin-top:6px}
+.progress-coverage{font-size:12px;color:#526b4d;margin:16px 0}
+.metric-chart{border-top:1px solid #e1e7dc;padding:18px 0 12px}
+.metric-heading{display:flex;justify-content:space-between;gap:10px;align-items:start}
+.metric-heading h3{font-size:15px;margin:0 0 5px}
+.metric-heading p{font-size:11px;line-height:1.5;color:#7d887b;margin:0 0 14px}
+.metric-heading span{font-size:11px;color:#536c4d;white-space:nowrap}
+.metric-chart-frame{height:235px;width:100%;min-width:0}
+.progress-tooltip{background:#fff;border:1px solid #d4e0cf;border-radius:6px;padding:12px;font-size:12px;line-height:1.8;box-shadow:0 4px 12px #1529211c}
+.progress-tooltip button{display:block;border:0;background:transparent;color:#315d3c;padding:7px 0 0;text-decoration:underline;font-size:12px}
+@media(max-width:600px){.metric-picker{grid-template-columns:1fr}.metric-chart-frame{height:200px}.progress-configuration{display:block}.threshold-label{display:block;margin-top:20px}.progress-dashboard{padding:16px}}
