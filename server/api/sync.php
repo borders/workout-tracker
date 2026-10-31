@@ -19,7 +19,16 @@ try {
     if(!isset($_SESSION['csrf']))$_SESSION['csrf']=bin2hex(random_bytes(32));$csrf=$_SESSION['csrf'];session_write_close();
     if($action==='push'){
         $origin=($testing?'http':'https').'://'.($_SERVER['HTTP_HOST']??'');
-        if(($_SERVER['HTTP_ORIGIN']??'')!==$origin||!hash_equals($csrf,$_SERVER['HTTP_X_CSRF_TOKEN']??''))respond(403,['error'=>'Sync authorization expired. Retry sync from this website.']);
+        // A standalone iOS home-screen PWA can omit Origin or send "null" for a
+        // same-origin fetch. Accept that case ONLY if the browser independently
+        // attests Sec-Fetch-Site: same-origin and the session CSRF token matches.
+        // Do not accept a foreign explicit Origin or an absent Fetch Metadata header.
+        $requestOrigin=$_SERVER['HTTP_ORIGIN']??'';
+        $sameOrigin=$requestOrigin===$origin||(
+            ($requestOrigin===''||$requestOrigin==='null')&&
+            strtolower($_SERVER['HTTP_SEC_FETCH_SITE']??'')==='same-origin'
+        );
+        if(!$sameOrigin||!hash_equals($csrf,$_SERVER['HTTP_X_CSRF_TOKEN']??''))respond(403,['error'=>'Sync authorization expired. Retry sync from this website.']);
         if(!str_starts_with(strtolower($_SERVER['CONTENT_TYPE']??''),'application/json'))respond(415,['error'=>'JSON content type required.']);
         $raw=file_get_contents('php://input',false,null,0,8388609);if(strlen($raw)>8388608)respond(413,['error'=>'Sync request is too large.']);
         $body=json_decode($raw,false,512,JSON_THROW_ON_ERROR);$operations=is_object($body)&&is_array($body->operations??null)?array_map(fn($op)=>is_object($op)?get_object_vars($op):$op,$body->operations):null;
