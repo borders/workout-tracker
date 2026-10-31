@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { calculateProgress } from './ProgressDashboard';
+import { calculateProgress, boundary, filterProgress, formatMetric, validDay, localDay } from './ProgressDashboard';
 import type { Workout } from './domain';
 const workout=(id:string,date:string,sets:Array<{exercise:string;weight:number;reps:number|null;kind?:'hold'|'reps'}>):Workout=>({
  id,date,dateLabel:date,location:'Hampton',notes:'',raw:'',flags:[],updatedAt:'2026-10-30',
@@ -19,7 +19,7 @@ describe('progress per workout',()=>{
   expect(point.heaviest).toBe(235);
   expect(point.averageRep).toBeCloseTo(2280/18);
   expect(point.averageSet).toBeCloseTo((45+225+235)/3);
-  expect(point.estimated).toBeCloseTo(235*(1+3/30));
+  expect(point.estimated).toBeCloseTo(225*(1+5/30));
  });
  it('excludes unknown reps and holds, and leaves non-Epley sessions without estimate',()=>{
   const p=calculateProgress([workout('w','2026-10-01',[
@@ -36,3 +36,13 @@ describe('progress per workout',()=>{
   expect(p.map(x=>x.workoutId)).toEqual(['a','b','c']);
  });
 });
+
+
+describe('calendar ranges and precision',()=>{
+ it('clamps month ends and leap years',()=>{expect(boundary('1M',new Date(2026,2,31))).toBe('2026-02-28');expect(boundary('1M',new Date(2024,2,31))).toBe('2024-02-29');expect(boundary('3M',new Date(2026,4,31))).toBe('2026-02-28');expect(boundary('6M',new Date(2026,7,31))).toBe('2026-02-28');expect(boundary('1Y',new Date(2024,1,29))).toBe('2023-02-28');});
+ it('has inclusive local date boundaries and excludes future dates except ALL',()=>{const now=new Date(2026,2,31,23,30);const dates=['2026-02-27','2026-02-28','2026-03-24','2026-03-25','2026-03-31','2026-04-01'];const points=calculateProgress(dates.map(date=>workout(date,date,[{exercise:'bench',weight:100,reps:1}])),'bench',100);expect(filterProgress(points,'1W',now).map(p=>p.date)).toEqual(['2026-03-25','2026-03-31']);expect(filterProgress(points,'1M',now).map(p=>p.date)).toEqual(dates.slice(1,-1));expect(filterProgress(points,'ALL',now)).toHaveLength(6);});
+ it('retains partial reps in calculations and display',()=>{const [point]=calculateProgress([workout('partial','2026-03-31',[{exercise:'bench',weight:100,reps:4.8}])],'bench',100);expect(point.reps).toBe(4.8);expect(point.above).toBe(4.8);expect(point.volume).toBe(480);expect(formatMetric(point.reps,'reps')).toBe((4.8).toLocaleString());expect(formatMetric(point.above,'above')).toBe((4.8).toLocaleString());});
+ it('rejects nonexistent dates',()=>{expect(validDay('2026-02-29')).toBe(false);expect(validDay('2024-02-29')).toBe(true);expect(validDay('2026-04-31')).toBe(false);expect(validDay('2026-00-12')).toBe(false);});
+});
+
+it('bounds every quick range on both ends, including all same-day sessions',()=>{const now=new Date(2026,9,31,9);for(const range of ['1W','1M','3M','6M','1Y'] as const){const start=boundary(range,now);const before=new Date(start+'T12:00:00');before.setDate(before.getDate()-1);const dates=[localDay(before),start,'2026-10-31','2026-10-31','2026-11-01'];const points=calculateProgress(dates.map((date,i)=>workout(String(i),date,[{exercise:'bench',weight:100,reps:1}])),'bench',100);expect(filterProgress(points,range,now).map(p=>p.workoutId)).toEqual(['1','2','3']);}});
