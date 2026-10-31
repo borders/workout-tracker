@@ -27,3 +27,7 @@ Sync is opt-in per browser. It runs on edits, online/visibility events, and a 30
 ## Home Screen authentication
 
 Apache rewrites all `/workouts/` requests through `gate.php`. It verifies the existing htpasswd bcrypt hash on a CSRF-protected sign-in form, rotates the session ID on successful login, and remembers login for up to 30 days with a Secure/HttpOnly/SameSite cookie. Failed attempts are rate-limited per hashed client IP outside the cookie session. Sessions and counters live outside the document root. The gate only serves an explicit static asset allowlist or dispatches the authenticated sync endpoint; PHP/config/source files cannot be downloaded through it. Service workers reject unauthenticated installation fetches and never cache sign-in HTML.
+
+## Gate/API CSRF session regression
+
+API calls routed through the form-login gate resume the already-authenticated login session for their CSRF token. They do not clear its session ID or switch session cookies mid-request. Legacy direct Basic-auth API access still uses its separate sync session. Regression checks exercise the full gate login, multiple handshakes/pull, successful push with the original token, and rejection with an invalid token. Origin checks are unchanged.
