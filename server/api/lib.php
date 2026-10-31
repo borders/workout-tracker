@@ -16,6 +16,12 @@ function migrate(PDO $db): void {
     $db->exec('CREATE TABLE IF NOT EXISTS fw_meta (id INT PRIMARY KEY, instance_id VARCHAR(64) NOT NULL, revision BIGINT NOT NULL DEFAULT 0) ENGINE=InnoDB');
     $db->exec('CREATE TABLE IF NOT EXISTS fw_records (kind VARCHAR(16) NOT NULL, id VARCHAR(160) NOT NULL, revision BIGINT NOT NULL, deleted TINYINT NOT NULL DEFAULT 0, document LONGTEXT NULL, PRIMARY KEY(kind,id), INDEX(revision)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin');
     $db->exec('CREATE TABLE IF NOT EXISTS fw_operations (id VARCHAR(64) PRIMARY KEY, request_hash CHAR(64) NOT NULL, request_json LONGTEXT NOT NULL, response_json LONGTEXT NOT NULL, created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin');
+    // Additive setup only, never DDL inside an API write transaction. Generated
+    // projection automatically follows sync, assistant writes and tombstones.
+    $column=$db->query("SHOW COLUMNS FROM fw_records LIKE 'workout_date'")->fetch();
+    if(!$column)$db->exec("ALTER TABLE fw_records ADD COLUMN workout_date VARCHAR(10) GENERATED ALWAYS AS (CASE WHEN kind='workouts' AND deleted=0 AND JSON_VALID(document) THEN LEFT(JSON_UNQUOTE(JSON_EXTRACT(document,'$.date')),10) ELSE NULL END) STORED");
+    $index=$db->query("SHOW INDEX FROM fw_records WHERE Key_name='assistant_recent'")->fetch();
+    if(!$index)$db->exec('ALTER TABLE fw_records ADD INDEX assistant_recent(kind,deleted,workout_date,id)');
     $query=$db->prepare('INSERT IGNORE INTO fw_meta(id,instance_id,revision) VALUES(1,?,0)');$query->execute([bin2hex(random_bytes(24))]);
 }
 function validDocument(string $kind, string $id, mixed $doc): bool {
