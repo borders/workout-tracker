@@ -13,6 +13,23 @@ declare(strict_types=1);
 if (PHP_SAPI !== 'cli') { http_response_code(404); exit; }
 require dirname(__DIR__, 2).'/server/api/lib.php';
 function failMigration(string $message): never { fwrite(STDERR, $message."\n"); exit(1); }
+// Create privately from the first byte, with no exists/check/write race.
+function writePrivateFile(string $path,string $payload): void {
+    $parent=realpath(dirname($path));
+    if(!$parent || (fileperms($parent)&0077)!==0)failMigration('Output requires a private parent directory (chmod 700).');
+    $path=$parent.'/'.basename($path);
+    if(is_link($path))failMigration('Refusing a symlink output path.');
+    $previous=umask(0077);
+    try{$handle=@fopen($path,'xb');}finally{umask($previous);}
+    if(!$handle)failMigration('Cannot exclusively create output; it may already exist.');
+    try{
+        $offset=0;$length=strlen($payload);
+        while($offset<$length){$written=fwrite($handle,substr($payload,$offset));if($written===false||$written===0)throw new RuntimeException('Incomplete output write.');$offset+=$written;}
+        if(!fflush($handle))throw new RuntimeException('Could not flush output.');
+        if(function_exists('fsync')&&!fsync($handle))throw new RuntimeException('Could not persist output.');
+        if(!fclose($handle))throw new RuntimeException('Could not close output.');
+    }catch(Throwable $error){if(is_resource($handle))fclose($handle);@unlink($path);failMigration('Output could not be completed. No migration writes performed.');}
+}
 function readWorkouts(PDO $db): array {
     return $db->query("SELECT id,revision,document FROM fw_records WHERE kind='workouts' AND deleted=0 ORDER BY id")->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -69,8 +86,7 @@ if($argv[1]==='scan') {
     $result=['warning'=>'Candidates only; NEVER automatic classification. Review complete sessions and original notes.','candidates'=>candidates(readWorkouts($db))];
     $json=json_encode($result,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES|JSON_THROW_ON_ERROR)."\n";
     if(isset($argv[2])) {
-        if(file_exists($argv[2]))failMigration('Output exists; refusing overwrite.');
-        if(file_put_contents($argv[2],$json,LOCK_EX)===false)failMigration('Could not write report.');
+        writePrivateFile($argv[2],$json);
     } else echo $json;
     exit;
 }
@@ -90,10 +106,11 @@ foreach($plan['changes'] as $change) {
     if(count($setIds)!==count($ids))failMigration('Duplicate set IDs.');
     $q=$db->prepare("SELECT revision,deleted,document FROM fw_records WHERE kind='workouts' AND id=?");$q->execute([$id]);$row=$q->fetch(PDO::FETCH_ASSOC);
     if(!$row || (int)$row['revision']!==$rev || (int)$row['deleted']!==0)failMigration("Revision changed/missing: $id. Re-run scan.");
-    $w=json_decode($row['document'],true,512,JSON_THROW_ON_ERROR);$changed=0;
-    foreach($w['sets'] as &$s) if(isset($setIds[$s['id']])) {
-        if($s['exercise']!=='Barbell bench press')failMigration("Not a barbell set: $id");
-        $s['exercise']='Dumbbell bench press';$changed++;unset($setIds[$s['id']]);
+    // Objects must remain objects, including empty and numeric-keyed objects.
+    $w=json_decode($row['document'],false,512,JSON_THROW_ON_ERROR);$changed=0;
+    foreach($w->sets as $s) if(isset($setIds[$s->id])) {
+        if($s->exercise!=='Barbell bench press')failMigration("Not a barbell set: $id");
+        $s->exercise='Dumbbell bench press';$changed++;unset($setIds[$s->id]);
     }
     unset($s);
     if($setIds || $changed!==count($ids))failMigration("Unknown set IDs: $id");
@@ -103,11 +120,8 @@ foreach($plan['changes'] as $change) {
         'baseRevision'=>$rev,'deleted'=>false,'document'=>$w];
 }
 $backup=['createdAt'=>gmdate('c'),'originalRecords'=>$rows,'approvals'=>$plan];
-$handle=@fopen($backupPath,'x');if(!$handle)failMigration('Cannot atomically create backup.');
-chmod($backupPath,0600);
 $payload=json_encode($backup,JSON_PRETTY_PRINT|JSON_THROW_ON_ERROR);
-if(fwrite($handle,$payload)!==strlen($payload)){fclose($handle);failMigration('Backup write incomplete. No writes performed.');}
-fflush($handle);fclose($handle);
+writePrivateFile($backupPath,$payload);
 echo "Backup created: $backupPath\n";
 foreach($ops as $op) {
     validateOperation($op);
