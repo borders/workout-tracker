@@ -21,18 +21,40 @@ function candidates(array $rows): array {
     foreach ($rows as $row) {
         $w=json_decode($row['document'],true,512,JSON_THROW_ON_ERROR);
         if(!str_starts_with($row['id'],'import-'))continue;
-        $suspect=[];
-        foreach($w['sets']??[] as $s) {
-            if(($s['exercise']??'')==='Barbell bench press' && ($s['kind']??'')==='reps'
-                && ($s['weight']??999)>=35 && $s['weight']<=100) {
-                $suspect[]=['setId'=>$s['id'],'weight'=>$s['weight'],'reps'=>$s['reps'],'notes'=>$s['notes']??''];
-            }
-        }
-        if($suspect)$out[]=['workoutId'=>$row['id'],'revision'=>(int)$row['revision'],
-            'date'=>$w['dateLabel']??'', 'location'=>$w['location']??'',
-            'sets'=>$suspect,'allSets'=>array_map(static fn($s)=>[
+        $bench=array_values(array_filter($w['sets']??[],static fn($s)=>
+            in_array($s['exercise']??'', ['Barbell bench press','Dumbbell bench press'],true)
+            && ($s['kind']??'')==='reps'));
+        if(!$bench)continue;
+        $barbell=array_values(array_filter($bench,static fn($s)=>$s['exercise']==='Barbell bench press'));
+        if(!$barbell)continue;
+        $weights=array_column($barbell,'weight');
+        sort($weights,SORT_NUMERIC);
+        $max=max($weights);
+        $count=count($barbell);
+        $lightCount=count(array_filter($weights,static fn($weight)=>$weight>=35&&$weight<=100));
+        $explicitDb=count($bench)-$count;
+        // Entire sessions are evidence: a lone 45-lb barbell warmup alongside
+        // heavier barbell work is not a candidate. Ambiguous sessions remain
+        // visible with a reason and require human approval.
+        $plausiblyDumbbell=$count>=2 && $lightCount===$count && $max<=100;
+        $mixedExplicit=$explicitDb>0;
+        if(!$plausiblyDumbbell && !$mixedExplicit)continue;
+        $out[]=[
+            'workoutId'=>$row['id'],'revision'=>(int)$row['revision'],
+            'date'=>$w['dateLabel']??'','location'=>$w['location']??'',
+            'reason'=>$plausiblyDumbbell
+                ? 'All barbell-labelled bench working sets are in a typical dumbbell range; review entire session.'
+                : 'Session contains explicitly labelled dumbbell sets; review for adjacent misclassifications.',
+            'caution'=>$mixedExplicit
+                ? 'Mixed exercise labels: check notes before approving any set.'
+                : 'Weight is circumstantial evidence, not proof.',
+            'suggestedSetIds'=>array_column($barbell,'id'),
+            'allSets'=>array_map(static fn($s)=>[
                 'id'=>$s['id'],'exercise'=>$s['exercise'],'weight'=>$s['weight'],
-                'reps'=>$s['reps'],'notes'=>$s['notes']??''],$w['sets']??[])];
+                'reps'=>$s['reps'],'notes'=>$s['notes']??'','raw'=>$s['raw']??''],
+                $w['sets']??[]),
+            'originalSessionNotes'=>$w['notes']??'',
+        ];
     }
     return $out;
 }
