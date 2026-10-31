@@ -60,6 +60,12 @@ For local PHP HTTP tests only, `FIELDWORK_TESTING=1` bypasses HTTPS/Apache authe
 
 Current evidence: 19 passing unit tests; local PHP 8.4 + MariaDB 11 API checks (CSRF/origin rejection, retry idempotency, conflicts/resolution, 500-record pagination, and tombstones); and two independent browser profiles reconciling all 401 journal sessions, transferring new sets, conflicting offline edits, and retaining both versions. Browser regression checks also cover mobile logging and production offline reload/saving. DreamHost activation must still be verified after the user creates the database and runs the two setup/deployment commands; source-code tests do not establish live server readiness.
 
-## Temporary PWA troubleshooting
+## Removed temporary diagnostics
 
-See [DIAGNOSTICS.md](DIAGNOSTICS.md) for opt-in, header-only, one-hour diagnostics. This does not relax Origin or CSRF checks. Never dump full request headers, cookies, session files, or workout bodies to troubleshoot authentication.
+The temporary header logger and client display-mode tag have been removed. The stable CSRF session fix remains. Captured logs on DreamHost are not deleted by a normal deployment. Before updating an older local checkout, run `npm run diagnose:sync -- disable` there to delete its enable flag and logs. If you already updated, remove only these files over SSH:
+
+```sh
+ssh jborders@borderseng.com 'rm -f "$HOME/.fieldwork/sync-diagnostics/enabled.json" "$HOME/.fieldwork/sync-diagnostics/requests.ndjson" "$HOME/.fieldwork/diagnostic-tools/diagnostics.php"'
+```
+
+These paths contain only temporary diagnostic files, not workouts, credentials, or session data. Never clear browser storage to clean up diagnostics.

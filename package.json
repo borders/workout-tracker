@@ -12,8 +12,7 @@
     "build:hosted": "tsc --noEmit && vite build --base=/workouts/ && node scripts/build-server.mjs",
     "deploy:dreamhost": "npm run build:hosted && bash scripts/deploy-dreamhost.sh",
     "setup:sync": "bash scripts/setup-sync.sh",
-    "test:sync-browser": "node scripts/sync-smoke.cjs",
-    "diagnose:sync": "bash scripts/diagnose-sync.sh"
+    "test:sync-browser": "node scripts/sync-smoke.cjs"
   },
   "dependencies": {
     "idb": "^8.0.0",

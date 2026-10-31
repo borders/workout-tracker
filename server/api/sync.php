@@ -1,11 +1,10 @@
 <?php
 declare(strict_types=1);
 require __DIR__.'/lib.php';
-require_once __DIR__.'/diagnostics.php';
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store, private');
 header('X-Content-Type-Options: nosniff');
-function respond(int $status,array $body): never {syncDiagWrite($status,$GLOBALS['fieldworkDiagCsrfMatch']??null);http_response_code($status);echo json_encode($body,JSON_THROW_ON_ERROR);exit;}
+function respond(int $status,array $body): never {http_response_code($status);echo json_encode($body,JSON_THROW_ON_ERROR);exit;}
 $testing=PHP_SAPI==='cli-server'&&getenv('FIELDWORK_TESTING')==='1';
 if(!$testing){
     if(($_SERVER['HTTPS']??'')!=='on'&&($_SERVER['HTTPS']??'')!=='1')respond(403,['error'=>'HTTPS is required.']);
@@ -26,8 +25,8 @@ try {
     if(!isset($_SESSION['csrf']))$_SESSION['csrf']=bin2hex(random_bytes(32));$csrf=$_SESSION['csrf'];session_write_close();
     if($action==='push'){
         $origin=($testing?'http':'https').'://'.($_SERVER['HTTP_HOST']??'');
-        $GLOBALS['fieldworkDiagCsrfMatch']=hash_equals($csrf,$_SERVER['HTTP_X_CSRF_TOKEN']??'');
-        if(($_SERVER['HTTP_ORIGIN']??'')!==$origin||!$GLOBALS['fieldworkDiagCsrfMatch'])respond(403,['error'=>'Sync authorization expired. Retry sync from this website.']);
+        $csrfMatches=hash_equals($csrf,$_SERVER['HTTP_X_CSRF_TOKEN']??'');
+        if(($_SERVER['HTTP_ORIGIN']??'')!==$origin||!$csrfMatches)respond(403,['error'=>'Sync authorization expired. Retry sync from this website.']);
         if(!str_starts_with(strtolower($_SERVER['CONTENT_TYPE']??''),'application/json'))respond(415,['error'=>'JSON content type required.']);
         $raw=file_get_contents('php://input',false,null,0,8388609);if(strlen($raw)>8388608)respond(413,['error'=>'Sync request is too large.']);
         $body=json_decode($raw,false,512,JSON_THROW_ON_ERROR);$operations=is_object($body)&&is_array($body->operations??null)?array_map(fn($op)=>is_object($op)?get_object_vars($op):$op,$body->operations):null;
