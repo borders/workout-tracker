@@ -30,6 +30,11 @@ function candidates(array $rows): array {
         $weights=array_column($barbell,'weight');
         sort($weights,SORT_NUMERIC);
         $max=max($weights);
+        // A session with any bench set above the user's historical 110-lb
+        // per-dumbbell ceiling is barbell by default; never suggest converting
+        // that session's barbell sets. Explicit notes can be reviewed separately.
+        $sessionHasHeavyBench=count(array_filter($bench,static fn($set)=>($set['weight']??0)>110))>0;
+        if($sessionHasHeavyBench)continue;
         $count=count($barbell);
         $lightCount=count(array_filter($weights,static fn($weight)=>$weight>=35&&$weight<=100));
         $explicitDb=count($bench)-$count;
