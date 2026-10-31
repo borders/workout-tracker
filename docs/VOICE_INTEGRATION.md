@@ -29,3 +29,7 @@ The app saves to IndexedDB first and synchronizes revisioned whole-workout JSON 
 - Synthetic disposable local MySQL tests: auth rejection, input validation, append, repeated idempotency key, ambiguous retry, concurrent edits, revision/operation persistence, and absence of deletions.
 - Verify mobile PWA sync sees the newly appended set, without a conflict, from a different browser; keep private production workout records untouched during tests.
 - Review by Codex before merging. No deployment or production database mutations in this PR without explicit user direction.
+
+## Current implementation status
+
+This branch now contains an experimental authenticated server read/append endpoint and disposable-database regression tests; it is no longer documentation-only. The reviewed fixes preserve unrelated JSON types, generate stable per-set timestamps, normalize technique-property ordering for retries, and retain the test client's CSRF session cookie. Server credential provisioning, production rollout, abuse controls, scalable recent-read queries, and a usable live ChatGPT voice connector have not been completed or enabled. See ASSISTANT_API.md for exact prototype semantics and test commands.

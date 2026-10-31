@@ -32,9 +32,9 @@ try{
         $rows=$db->query("SELECT id,revision,document FROM fw_records WHERE kind='workouts' AND deleted=0")->fetchAll(PDO::FETCH_ASSOC);
         $out=[];
         foreach($rows as $row){
-            $d=json_decode($row['document'],true,512,JSON_THROW_ON_ERROR);
-            $out[]=['id'=>$row['id'],'date'=>$d['date']??'','location'=>$d['location']??'',
-                'revision'=>(int)$row['revision'],'sets'=>array_slice($d['sets']??[],-15)];
+            $d=json_decode($row['document'],false,512,JSON_THROW_ON_ERROR);
+            $out[]=['id'=>$row['id'],'date'=>$d->date??'','location'=>$d->location??'',
+                'revision'=>(int)$row['revision'],'sets'=>array_slice($d->sets??[],-15)];
         }
         usort($out,static fn($a,$b)=>strcmp($b['date'],$a['date']) ?: strcmp($b['id'],$a['id']));
         assistantResponse(200,['workouts'=>array_slice($out,0,$limit)]);
@@ -62,9 +62,11 @@ try{
         if(in_array($field,['pause','difficulty'],true)&&(!is_string($value)||strlen($value)>80))
             assistantResponse(400,['error'=>'Invalid detail']);
     }
-    // Deterministic set ID and payload permit identical retries.
+    // JSON object property order is not part of the meaning of a set.
+    ksort($details,SORT_STRING);
+    // Deterministic set ID and normalized payload permit equivalent retries.
     $set=['id'=>'voice-'.hash('sha256',$key),'reps'=>$reps,'weight'=>$weight,'exercise'=>$exercise,
-          'notes'=>$notes,'raw'=>'','kind'=>'reps','flags'=>[],'details'=>$details];
+          'notes'=>$notes,'raw'=>'','kind'=>'reps','flags'=>[],'details'=>(object)$details];
     $db->beginTransaction();
     try {
         $result=appendAssistantSetInTransaction($db,$id,$set,'voice-'.$key);
