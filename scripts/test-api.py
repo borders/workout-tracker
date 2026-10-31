@@ -34,6 +34,11 @@ op = operation(workout)
 assert request('push', {'operations':[op]}, {'Origin':origin})[0] == 403
 assert request('push', {'operations':[op]}, {**headers,'Origin':'https://untrusted.example'})[0] == 403
 assert request('push', {'operations':[{'bad':'payload'}]}, headers)[0] == 400
+# A standalone PWA may omit Origin; require same-origin Fetch Metadata and CSRF.
+pwa_op = operation({**workout, 'id':identifier+'-pwa'})
+assert request('push', {'operations':[pwa_op]}, {'Sec-Fetch-Site':'same-origin','X-CSRF-Token':hello['csrf']})[0] == 200
+assert request('push', {'operations':[operation({**workout,'id':identifier+'-bad-origin'})]}, {'Origin':'null','X-CSRF-Token':hello['csrf']})[0] == 403
+assert request('push', {'operations':[operation({**workout,'id':identifier+'-cross-site'})]}, {'Origin':'null','Sec-Fetch-Site':'cross-site','X-CSRF-Token':hello['csrf']})[0] == 403
 status, response = request('push', {'operations':[op]}, headers)
 assert status == 200, response
 accepted = response['results'][0]
