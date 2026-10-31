@@ -27,7 +27,9 @@ const assert = require('node:assert/strict');
  await page.getByText('Some entries need review').waitFor();
  assert.equal(await page.locator('article.workout').count(),1);
  await page.getByRole('button',{name:'Progress',exact:true}).click();
- await page.locator('.recharts-line').waitFor();
+ await page.locator('.metric-chart').first().waitFor();
+ assert.equal(await page.locator('.metric-chart').count(),4);
+ await page.locator('.recharts-line').first().waitFor();
  assert.deepEqual(errors,[]);
  if (process.env.TEST_OFFLINE) {
   await page.evaluate(async()=>{await navigator.serviceWorker.ready;});

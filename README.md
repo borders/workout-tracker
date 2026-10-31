@@ -65,3 +65,11 @@ If you cloned with Git instead, stop Vite and use `git pull --ff-only`, `npm ci`
 ## Hosting on DreamHost
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for the protected `/workouts/` deployment. Use `npm run deploy:dreamhost` from your computer after updating this checkout. This builds a subdirectory-aware bundle and prompts for SSH authentication and a separate website password. Direct deployment from the cloud workspace is currently blocked by network access; no DreamHost files have been changed by the cloud setup.
+
+## Progress analysis
+
+Progress supports seven selectable per-workout metrics, exercise filtering, an inclusive weight threshold, and local-calendar quick ranges. Limited ranges end today; month/year starts clamp to the last valid day when necessary. ALL includes every valid recorded date. Unknown/zero reps and holds do not contribute to rep-based metrics. Fractional reps retain their precision. Dumbbell weights use the recorded per-dumbbell convention.
+
+Click or keyboard-select a point, or choose a workout from the dropdown, to show a persistent detail panel. Its button opens that exact workout in Journal, including separate sessions on the same day. Tooltips are informational. Controls do not alter stored workout records.
+
+With the app served locally, run `APP_URL=http://localhost:4176/workouts/ npm run test:progress` (adjust the URL to the local server). This uses an isolated browser profile and synthetic IndexedDB fixtures. It checks calendar bounds, future/invalid-date exclusion, partial reps, threshold/exercise changes, empty estimates, same-day links, pointer/keyboard navigation, dense charts, and unchanged workout storage. Unit coverage also checks month-end and leap-year range boundaries.
