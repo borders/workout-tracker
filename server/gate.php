@@ -3,6 +3,11 @@ declare(strict_types=1);
 // Every hosted request passes through this gate before static files or the API.
 $testing=PHP_SAPI==='cli-server'&&getenv('FIELDWORK_LOGIN_TESTING')==='1';
 if(!$testing&&!in_array($_SERVER['HTTPS']??'', ['on','1'],true)){http_response_code(403);exit('HTTPS is required.');}
+// Assistant route is authenticated independently with a dedicated bearer token.
+// It must not inherit the browser login session or CSRF token.
+if((parse_url($_SERVER['REQUEST_URI']??'',PHP_URL_PATH)??'')==='/workouts/api/assistant.php'){
+    require __DIR__.'/api/assistant.php'; exit;
+}
 $private=getenv('FIELDWORK_PRIVATE_DIR')?:dirname(__DIR__,2);
 $base='/workouts/';
 header('X-Content-Type-Options: nosniff');
