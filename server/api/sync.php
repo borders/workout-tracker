@@ -14,12 +14,19 @@ try {
     $action=$_GET['action']??'handshake';$method=$_SERVER['REQUEST_METHOD'];
     if(!in_array($action,['handshake','pull','push'],true))respond(404,['error'=>'Unknown API action.']);
     if(($action==='push'&&$method!=='POST')||($action!=='push'&&$method!=='GET'))respond(405,['error'=>'Method not allowed.']);
-    session_name('fieldwork_sync');session_set_cookie_params(['path'=>rtrim(dirname($_SERVER['SCRIPT_NAME']),'/').'/','secure'=>!$testing,'httponly'=>true,'samesite'=>'Strict']);
+    // The gate has already validated and closed the login session. Resume that
+    // same session rather than switching names/clearing its ID mid-request:
+    // PHP does not reliably reselect a second cookie after a session was opened.
+    $viaGate=defined('FIELDWORK_AUTHENTICATED')&&FIELDWORK_AUTHENTICATED===true;
+    if(!$viaGate){
+        session_name('fieldwork_sync');session_set_cookie_params(['path'=>rtrim(dirname($_SERVER['SCRIPT_NAME']),'/').'/','secure'=>!$testing,'httponly'=>true,'samesite'=>'Strict']);
+    }
     ini_set('session.use_strict_mode','1');session_start();
     if(!isset($_SESSION['csrf']))$_SESSION['csrf']=bin2hex(random_bytes(32));$csrf=$_SESSION['csrf'];session_write_close();
     if($action==='push'){
         $origin=($testing?'http':'https').'://'.($_SERVER['HTTP_HOST']??'');
-        if(($_SERVER['HTTP_ORIGIN']??'')!==$origin||!hash_equals($csrf,$_SERVER['HTTP_X_CSRF_TOKEN']??''))respond(403,['error'=>'Sync authorization expired. Retry sync from this website.']);
+        $csrfMatches=hash_equals($csrf,$_SERVER['HTTP_X_CSRF_TOKEN']??'');
+        if(($_SERVER['HTTP_ORIGIN']??'')!==$origin||!$csrfMatches)respond(403,['error'=>'Sync authorization expired. Retry sync from this website.']);
         if(!str_starts_with(strtolower($_SERVER['CONTENT_TYPE']??''),'application/json'))respond(415,['error'=>'JSON content type required.']);
         $raw=file_get_contents('php://input',false,null,0,8388609);if(strlen($raw)>8388608)respond(413,['error'=>'Sync request is too large.']);
         $body=json_decode($raw,false,512,JSON_THROW_ON_ERROR);$operations=is_object($body)&&is_array($body->operations??null)?array_map(fn($op)=>is_object($op)?get_object_vars($op):$op,$body->operations):null;

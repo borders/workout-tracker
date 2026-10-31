@@ -43,7 +43,7 @@ if(!$authenticated){
 <?php exit;
 }
 session_write_close();
-if($relative==='api/sync.php'){session_id('');define('FIELDWORK_AUTHENTICATED',true);$_SERVER['SCRIPT_NAME']=$base.'api/sync.php';require __DIR__.'/api/sync.php';exit;}
+if($relative==='api/sync.php'){define('FIELDWORK_AUTHENTICATED',true);$_SERVER['SCRIPT_NAME']=$base.'api/sync.php';require __DIR__.'/api/sync.php';exit;}
 if(!in_array($_SERVER['REQUEST_METHOD'],['GET','HEAD'],true)){http_response_code(405);exit;}
 if($relative==='')$relative='index.html';
 if(!in_array($relative,['index.html','icon.svg','manifest.webmanifest','sw.js'],true)&&!preg_match('~^assets/[A-Za-z0-9_.-]+$~D',$relative)){http_response_code(404);exit;}
