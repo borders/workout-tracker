@@ -57,6 +57,7 @@ Path(sys.argv[2]).write_text('fieldwork:synthetic-test-marker\\n')
     assert (first / 'index.html').is_file()
     protection = (first / '.htaccess').read_text()
     assert 'SSLRequireSSL' in protection and 'RewriteRule ^ gate.php [END]' in protection
+    assert 'CGIPassAuth On' in protection
     assert 'AuthType None' in protection and 'DirectoryIndex gate.php' in protection
     result = run()
     assert result.returncode == 0, result.stderr

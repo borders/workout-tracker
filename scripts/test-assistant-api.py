@@ -2,7 +2,7 @@
 
 Start the PHP test server with FIELDWORK_TESTING=1, FIELDWORK_CONFIG
 pointing to a disposable database, FIELDWORK_PRIVATE_DIR to a private
-temporary directory containing assistant-token. Then run with
+temporary directory provisioned by scripts/assistant/token.php. Then run with
 ASSISTANT_TEST_TOKEN set to that token.
 """
 import json
