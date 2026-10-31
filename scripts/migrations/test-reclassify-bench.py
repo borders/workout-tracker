@@ -23,7 +23,7 @@ try:
      def call(code,data=None):
       code='require '+json.dumps(str(root/'server/api/lib.php'))+'; $db=connect(configuration()); '+code
       r=subprocess.run([php,'-r',code],input=json.dumps(data) if data is not None else None,text=True,env=env,capture_output=True,check=True);return json.loads(r.stdout) if r.stdout else None
-     def set_(id,weight,exercise='Barbell bench press',kind='reps'):return dict(id=id,reps=3,weight=weight,exercise=exercise,kind=kind,notes='preserve',raw='original line',flags=[])
+     def set_(id,weight,exercise='Barbell bench press',kind='reps'):return dict(id=id,reps=3,weight=weight,exercise=exercise,kind=kind,notes='preserve',raw='original line',flags=[],extra={'emptyObject':{},'emptyArray':[]})
      def workout(id,sets):return dict(id=id,date='2026-10-20',dateLabel='2026-10-20',location='synthetic',notes='preserve notes',raw='original text',flags=[],sets=sets,updatedAt='2026-10-20T00:00:00Z',context={},extra={'emptyObject':{},'emptyArray':[],'nested':[{},[],{'0':'zero','1':{}}]})
      docs=[workout('import-light',[set_('light-a',55),set_('light-b',60)]),workout('import-heavy',[set_('heavy-a',45),set_('heavy-b',225)]),workout('import-mixed',[set_('mixed-a',55),set_('mixed-b',60,'Dumbbell bench press')])]
      call('migrate($db); $db->exec("DELETE FROM fw_records; DELETE FROM fw_operations; UPDATE fw_meta SET revision=3 WHERE id=1");$docs=json_decode(stream_get_contents(STDIN),false);foreach($docs as $i=>$doc){$q=$db->prepare("INSERT INTO fw_records(kind,id,revision,deleted,document) VALUES(?,?,?,?,?)");$q->execute(["workouts",$doc->id,$i+1,0,json_encode($doc)]);}',docs)

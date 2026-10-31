@@ -1,6 +1,6 @@
 # One-time imported bench classification repair
 
-**Codex / operator: DO NOT MERGE OR RUN ON PRODUCTION UNTIL REVIEWED.** This migration is not part of normal deployment. It does not auto-run. Branch was created before the recent PWA sync fix: rebase onto current `main` and resolve conflicts before merging.
+**Codex / operator: DO NOT MERGE OR RUN ON PRODUCTION UNTIL REVIEWED.** This migration is not part of normal deployment. It does not auto-run. The reviewed branch has been updated with current `main`, including the PWA CSRF session fix; no force-push/rewrite was used.
 
 The scan evaluates whole imported sessions. It flags sessions where at least two barbell-labelled bench sets are all between 35 and 100 lb, or sessions mixing explicit dumbbell and barbell labels. Any session containing a bench set over 110 lb is excluded from proposed dumbbell conversions (the user's stated historical maximum is at most 110 lb per dumbbell). Isolated 45-lb warm-ups beside heavier barbell sets are not flagged. These are candidates only, never automatic corrections; review all sets and original notes. Dumbbell weights retain their recorded per-dumbbell convention.
 
@@ -27,3 +27,17 @@ The scan evaluates whole imported sessions. It flags sessions where at least two
 The scan does not have access to the actual production workouts until invoked on the server. There are no preapproved classifications in this PR. The script does not automatically correct low-weight workouts, and does not modify original import text. It relies on the existing `pushOperation` function for transactional revision, audit receipt, and conflict rules.
 
 Do not promise one-command rollback: restoring a database backup while active clients sync can reintroduce conflicts. Rollback requires a planned, revision-aware reverse migration or coordinated full DB restoration with clients offline.
+
+## Regression checks for the review fixes
+
+Workouts are decoded as JSON objects during apply, preserving empty objects, nested objects, numeric object keys, arrays, and unknown attributes. Only the explicitly approved exercise labels are changed. Candidate reports and backups use exclusive file creation with mode 0600 from the first byte, reject symlink targets, and require a private parent directory (mode 0700). Existing output files are never overwritten; failed writes stop before migration writes. Use `mkdir -m 700` for a new private output directory, or restrict an existing intended private directory with `chmod 700`.
+
+Run the automated regression suite with a **local disposable MySQL admin configuration** (not the DreamHost production configuration):
+
+```sh
+PHP_BINARY=php FIELDWORK_MIGRATION_TEST_CONFIG=/absolute/path/local-test-config.json python scripts/migrations/test-reclassify-bench.py
+```
+
+The configuration uses the backend JSON format, points only to localhost/127.0.0.1 (or a local socket), and must permit creating and dropping test databases. The suite creates a uniquely named database and removes it afterward, and uses owner-only temporary config/output directories. It verifies candidate selection, read-only scanning, exact approved changes, JSON type preservation, original backups, restrictive report permissions even under umask 022, existing-file and symlink rejection, concurrent scan exclusivity, stale-revision rejection, and invalid approvals.
+
+These fixes do not change the documented per-workout commit behavior: a concurrent conflict after earlier commits may still result in a partial multi-workout apply. No production classifications have been approved or executed.
