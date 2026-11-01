@@ -58,7 +58,7 @@ Path(sys.argv[2]).write_text('fieldwork:synthetic-test-marker\\n')
     protection = (first / '.htaccess').read_text()
     assert 'SSLRequireSSL' in protection and 'RewriteRule ^ gate.php [END]' in protection
     assert 'CGIPassAuth On' in protection
-    bridge=r'RewriteRule ^api/assistant\.php$ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]'
+    bridge=r'RewriteRule ^(?:api/assistant\.php|mcp)$ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]'
     assert 'RewriteCond %{HTTP:Authorization} !^$' in protection
     assert bridge in protection and protection.index(bridge)<protection.index('RewriteRule ^ gate.php [END]')
     assert 'AuthType None' in protection and 'DirectoryIndex gate.php' in protection
