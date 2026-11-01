@@ -60,6 +60,8 @@ Options -Indexes
 DirectoryIndex gate.php
 SSLRequireSSL
 AuthType None
+# Preserve the Assistant bearer header when PHP runs under CGI/FastCGI.
+CGIPassAuth On
 Require all granted
 RewriteEngine On
 RewriteRule ^gate\.php$ - [END]
