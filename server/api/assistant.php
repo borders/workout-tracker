@@ -19,7 +19,14 @@ try{
         header('WWW-Authenticate: Bearer');assistantResponse(401,['error'=>'Unauthorized']);
     }
     $dir=assistantPrivateDirectory();
-    $auth=$_SERVER['HTTP_AUTHORIZATION']??$_SERVER['REDIRECT_HTTP_AUTHORIZATION']??'';
+    // Each Apache internal redirect can prefix CGI environment variables again.
+    // Inspect server variables only, never similarly named client headers/query
+    // values. A nonempty primary value remains authoritative, even if invalid.
+    $auth='';
+    for($redirects=0;$redirects<=10;$redirects++){
+        $candidate=$_SERVER[str_repeat('REDIRECT_',$redirects).'HTTP_AUTHORIZATION']??'';
+        if(is_string($candidate) && $candidate!==''){$auth=$candidate;break;}
+    }
     if(!assistantAuthenticate($auth,$dir)) {
         $slot=substr(hash('sha256',$_SERVER['REMOTE_ADDR']??'unknown'),0,2);
         if(!assistantRateAllowed($dir,'denied-'.$slot,20)) {
