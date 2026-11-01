@@ -32,4 +32,9 @@ The app saves to IndexedDB first and synchronizes revisioned whole-workout JSON 
 
 ## Current implementation status
 
-This branch now contains an experimental authenticated server read/append endpoint and disposable-database regression tests; it is no longer documentation-only. The reviewed fixes preserve unrelated JSON types, generate stable per-set timestamps, normalize technique-property ordering for retries, and retain the test client's CSRF session cookie. Production-hardening code now adds token lifecycle tooling, abuse controls, indexed bounded recent reads, and disposable-database/browser regressions. Production rollout, credential provisioning, and a usable live ChatGPT voice connector have not been performed or enabled. See [ASSISTANT_API.md](ASSISTANT_API.md) for semantics, operator prerequisites, and test commands.
+The Assistant REST API now has dedicated expiring credentials, rate limits, bounded indexed reads, atomic idempotent appends, and disposable-database/browser regressions. The user provisioned its credential, applied the additive date/index schema, and verified an authenticated 200 response after deployment. See [ASSISTANT_API.md](ASSISTANT_API.md) for its contract. The new OAuth MCP adapter described below remains disabled until separately configured and deployed; no live ChatGPT/voice connection has been verified.
+
+
+## Read-only MCP adapter
+
+See [MCP.md](MCP.md) for the optional PHP MCP resource server, provider-hosted OAuth, owner-only `workouts:read` authorization, local integration tests, and operator prerequisites. The REST API was provisioned and verified by the user; this new MCP connection remains disabled until separately configured. No write tool or live ChatGPT connection is enabled by this change. Auth0/provider registration and a real Live/iPhone test remain operator steps.

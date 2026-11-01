@@ -70,6 +70,7 @@ require ''' + json.dumps(str(root/'server/api')) + '''.'/'.basename($path);
                 raise RuntimeError('Local PHP server did not become ready')
             subprocess.run([sys.executable, str(root/'scripts/test-assistant-api.py')], env=env, check=True)
             subprocess.run([sys.executable, str(root/'scripts/test-api.py')], env=dict(env,SYNC_TEST_URL=env['ASSISTANT_TEST_ROOT']+'/sync.php'),check=True)
+            subprocess.run([sys.executable, str(root/'scripts/test-mcp.py')], env=env,check=True)
             subprocess.run([sys.executable, str(root/'scripts/test-assistant-hardening.py')], env=env,check=True)
             server_log.flush();server_log.seek(0)
             logs=server_log.read()

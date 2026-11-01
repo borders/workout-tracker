@@ -13,7 +13,8 @@
     "deploy:dreamhost": "npm run build:hosted && bash scripts/deploy-dreamhost.sh",
     "setup:sync": "bash scripts/setup-sync.sh",
     "test:sync-browser": "node scripts/sync-smoke.cjs",
-    "test:progress": "node scripts/progress-smoke.cjs"
+    "test:progress": "node scripts/progress-smoke.cjs",
+    "setup:mcp": "composer install --no-dev --prefer-dist --no-interaction"
   },
   "dependencies": {
     "idb": "^8.0.0",

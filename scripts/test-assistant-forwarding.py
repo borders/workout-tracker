@@ -101,7 +101,7 @@ exec '''+shlex.quote(cgi)+' -n -d cgi.force_redirect=0 "$@"\n')
         assert request(path=endpoint+'&forwarding_case=invalid-primary',authorization='Bearer '+token)[0]==401
         # Negative control reproduces the original failure: in an Action-style
         # CGI handler outside /workouts, CGIPassAuth in .htaccess is insufficient.
-        without_bridge='\n'.join(line for line in rendered.splitlines() if not line.startswith(('RewriteCond %{HTTP:Authorization}', 'RewriteRule ^api/assistant')))+'\n'
+        without_bridge='\n'.join(line for line in rendered.splitlines() if not line.startswith(('RewriteCond %{HTTP:Authorization}', 'RewriteRule ^(?:api/assistant')))+'\n'
         htaccess.write_text(without_bridge)
         assert request(authorization='Bearer '+token)[0]==401,'Negative control should reproduce dropped Authorization'
         htaccess.write_text(rendered)

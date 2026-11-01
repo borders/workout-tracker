@@ -8,6 +8,10 @@ if(!$testing&&!in_array($_SERVER['HTTPS']??'', ['on','1'],true)){http_response_c
 if((parse_url($_SERVER['REQUEST_URI']??'',PHP_URL_PATH)??'')==='/workouts/api/assistant.php'){
     require __DIR__.'/api/assistant.php'; exit;
 }
+// MCP has its own OAuth boundary; it never inherits website sessions/CSRF.
+if(in_array(parse_url($_SERVER['REQUEST_URI']??'',PHP_URL_PATH),['/workouts/mcp','/workouts/.well-known/oauth-protected-resource'],true)){
+    require __DIR__.'/mcp/endpoint.php'; exit;
+}
 $private=getenv('FIELDWORK_PRIVATE_DIR')?:dirname(__DIR__,2);
 $base='/workouts/';
 header('X-Content-Type-Options: nosniff');

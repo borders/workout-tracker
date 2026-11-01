@@ -50,6 +50,9 @@ test -f "$release/index.html"
 if [ -f "$HOME/.fieldwork/sync-config.json" ]; then
   php "$release/api/setup.php" --check
 fi
+if [ -f "$HOME/.fieldwork/mcp-config.json" ]; then
+  FIELDWORK_PRIVATE_DIR="$HOME/.fieldwork" php "$release/mcp/check.php"
+fi
 test -s "$HOME/.fieldwork/htpasswd"
 php -l "$release/gate.php"
 mkdir -p "$HOME/.fieldwork/sessions"
@@ -65,9 +68,9 @@ CGIPassAuth On
 Require all granted
 RewriteEngine On
 # CGI handlers can run outside this directory's CGIPassAuth scope. Copy only
-# the Assistant request's real header, before the separate gate substitution.
+# the Assistant/MCP request's real header, before the separate gate substitution.
 RewriteCond %{HTTP:Authorization} !^$
-RewriteRule ^api/assistant\.php$ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteRule ^(?:api/assistant\.php|mcp)$ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteRule ^gate\.php$ - [END]
 RewriteRule ^ gate.php [END]
 <Files "sw.js">
