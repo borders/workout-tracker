@@ -64,6 +64,10 @@ AuthType None
 CGIPassAuth On
 Require all granted
 RewriteEngine On
+# CGI handlers can run outside this directory's CGIPassAuth scope. Copy only
+# the Assistant request's real header, before the separate gate substitution.
+RewriteCond %{HTTP:Authorization} !^$
+RewriteRule ^api/assistant\.php$ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteRule ^gate\.php$ - [END]
 RewriteRule ^ gate.php [END]
 <Files "sw.js">
